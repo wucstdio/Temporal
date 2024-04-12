@@ -1,0 +1,293 @@
+DIGEST c60caaa905c40ad6841659c6ffdae236
+FMySystem.TypeSafety
+R104:117 Coq.Strings.String <> <> lib
+R169:184 Coq.Program.Equality <> <> lib
+R216:224 MySystem.Smallstep <> <> lib
+R256:259 MySystem.Maps <> <> lib
+R291:300 MySystem.BaseSystem <> <> lib
+R327:336 Coq.Lists.List <> <> lib
+R346:358 Coq.Lists.List ListNotations <> mod
+R385:414 Coq.Logic.FunctionalExtensionality <> <> lib
+mod 424:433 <> TypeSafety
+R443:452 MySystem.BaseSystem <> <> mod
+prf 922:933 TypeSafety not_so_empty
+R951:957 MySystem.BaseSystem <> context def
+binder 944:948 <> Omega:1
+R964:969 Coq.Strings.String <> string ind
+binder 961:961 <> x:2
+R976:980 MySystem.BaseSystem <> CType ind
+binder 973:973 <> A:3
+R986:986 Coq.Init.Logic <> ::type_scope:'~'_x not
+R987:987 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1002:1005 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R989:993 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R995:996 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R997:1001 MySystem.TypeSafety <> Omega:1 var
+R988:988 MySystem.TypeSafety <> x:2 var
+R994:994 MySystem.TypeSafety <> A:3 var
+R1006:1010 MySystem.Maps <> empty def
+R1037:1039 Coq.Init.Logic <> not def
+R1067:1069 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1060:1064 MySystem.Maps <> empty def
+R1070:1073 Coq.Init.Datatypes <> Some constr
+R1067:1069 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1060:1064 MySystem.Maps <> empty def
+R1070:1073 Coq.Init.Datatypes <> Some constr
+R1104:1109 MySystem.Maps <> update def
+R1119:1126 MySystem.Maps <> t_update def
+R1139:1148 Coq.Strings.String <> eqb def
+R1139:1148 Coq.Strings.String <> eqb def
+R1194:1200 Coq.Strings.String <> eqb_neq thm
+R1194:1200 Coq.Strings.String <> eqb_neq thm
+R1216:1218 Coq.Init.Logic <> not def
+R1236:1238 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1236:1238 Coq.Init.Logic <> ::type_scope:x_'='_x not
+prf 1326:1344 TypeSafety functional_equality
+binder 1355:1355 <> A:4
+binder 1357:1357 <> B:5
+R1373:1376 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1372:1372 MySystem.TypeSafety <> A:4 var
+R1377:1377 MySystem.TypeSafety <> B:5 var
+binder 1367:1367 <> f:6
+binder 1369:1369 <> g:7
+R1388:1391 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1384:1386 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1383:1383 MySystem.TypeSafety <> f:6 var
+R1387:1387 MySystem.TypeSafety <> g:7 var
+R1403:1403 MySystem.TypeSafety <> A:4 var
+binder 1400:1400 <> x:8
+R1410:1412 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1407:1407 MySystem.TypeSafety <> f:6 var
+R1409:1409 MySystem.TypeSafety <> x:8 var
+R1413:1413 MySystem.TypeSafety <> g:7 var
+R1415:1415 MySystem.TypeSafety <> x:8 var
+prf 1471:1478 TypeSafety so_empty
+R1503:1509 MySystem.BaseSystem <> context def
+binder 1489:1493 <> Omega:9
+binder 1495:1500 <> Omega':10
+R1538:1541 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1515:1515 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1529:1532 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1521:1522 MySystem.BaseSystem <> :::x_';'_x not
+R1516:1520 MySystem.TypeSafety <> Omega:9 var
+R1523:1528 MySystem.TypeSafety <> Omega':10 var
+R1533:1537 MySystem.Maps <> empty def
+R1555:1558 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1547:1549 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1542:1546 MySystem.TypeSafety <> Omega:9 var
+R1550:1554 MySystem.Maps <> empty def
+R1565:1567 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1559:1564 MySystem.TypeSafety <> Omega':10 var
+R1568:1572 MySystem.Maps <> empty def
+R1599:1603 MySystem.BaseSystem <> merge def
+R1618:1622 MySystem.Maps <> empty def
+R1637:1643 MySystem.Maps <> t_empty def
+R1671:1675 MySystem.Maps <> empty def
+R1685:1691 MySystem.Maps <> t_empty def
+R1700:1724 Coq.Logic.FunctionalExtensionality <> functional_extensionality thm
+R1700:1724 Coq.Logic.FunctionalExtensionality <> functional_extensionality thm
+R1745:1763 MySystem.TypeSafety TypeSafety functional_equality thm
+R1745:1763 MySystem.TypeSafety TypeSafety functional_equality thm
+R1865:1869 MySystem.Maps <> empty def
+R1879:1885 MySystem.Maps <> t_empty def
+R1894:1918 Coq.Logic.FunctionalExtensionality <> functional_extensionality thm
+R1894:1918 Coq.Logic.FunctionalExtensionality <> functional_extensionality thm
+R1939:1957 MySystem.TypeSafety TypeSafety functional_equality thm
+R1939:1957 MySystem.TypeSafety TypeSafety functional_equality thm
+prf 3154:3167 TypeSafety contrapositive
+binder 3179:3179 <> P:11
+binder 3181:3181 <> Q:12
+R3194:3194 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3201:3206 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3217:3217 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3196:3199 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3195:3195 MySystem.TypeSafety <> P:11 var
+R3200:3200 MySystem.TypeSafety <> Q:12 var
+R3210:3213 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3207:3208 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3209:3209 MySystem.TypeSafety <> Q:12 var
+R3214:3215 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3216:3216 MySystem.TypeSafety <> P:11 var
+R3244:3246 Coq.Init.Logic <> not def
+prf 3317:3332 TypeSafety de_morgan_not_or
+binder 3344:3344 <> P:13
+binder 3346:3346 <> Q:14
+R3369:3372 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3359:3361 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3368:3368 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3363:3366 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R3362:3362 MySystem.TypeSafety <> P:13 var
+R3367:3367 MySystem.TypeSafety <> Q:14 var
+R3376:3379 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3373:3374 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3375:3375 MySystem.TypeSafety <> P:13 var
+R3380:3381 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3382:3382 MySystem.TypeSafety <> Q:14 var
+R3420:3422 Coq.Init.Logic <> not def
+R3440:3442 Coq.Init.Logic <> not def
+R3486:3488 Coq.Init.Logic <> not def
+R3506:3508 Coq.Init.Logic <> not def
+prf 3556:3572 TypeSafety de_morgan_not_and
+binder 3584:3584 <> P:15
+binder 3586:3586 <> Q:16
+R3609:3612 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3599:3601 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3608:3608 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3603:3606 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3602:3602 MySystem.TypeSafety <> P:15 var
+R3607:3607 MySystem.TypeSafety <> Q:16 var
+R3616:3619 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R3613:3614 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3615:3615 MySystem.TypeSafety <> P:15 var
+R3620:3621 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3622:3622 MySystem.TypeSafety <> Q:16 var
+R3651:3653 Coq.Init.Logic <> not def
+R3665:3667 Coq.Init.Logic <> not def
+prf 3694:3702 TypeSafety Progress1
+R3718:3721 MySystem.BaseSystem <> Proc ind
+binder 3714:3714 <> P:17
+R3728:3733 Coq.Strings.String <> string ind
+binder 3725:3725 <> z:18
+R3740:3744 MySystem.BaseSystem <> CType ind
+binder 3737:3737 <> T:19
+R3772:3775 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3755:3759 MySystem.BaseSystem <> :::x_'|--'_x_'::'_x_'\in'_x not
+R3761:3764 MySystem.BaseSystem <> :::x_'|--'_x_'::'_x_'\in'_x not
+R3766:3770 MySystem.BaseSystem <> :::x_'|--'_x_'::'_x_'\in'_x not
+R3750:3754 MySystem.Maps <> empty def
+R3760:3760 MySystem.TypeSafety <> P:17 var
+R3765:3765 MySystem.TypeSafety <> z:18 var
+R3771:3771 MySystem.TypeSafety <> T:19 var
+R3788:3793 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3776:3785 MySystem.BaseSystem <> not_poised ind
+R3787:3787 MySystem.TypeSafety <> P:17 var
+R3794:3801 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R3809:3811 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R3805:3808 MySystem.BaseSystem <> Proc ind
+binder 3802:3802 <> Q:20
+R3813:3817 MySystem.BaseSystem <> :::x_'-->'_x not
+R3812:3812 MySystem.TypeSafety <> P:17 var
+R3818:3818 MySystem.TypeSafety <> Q:20 var
+R3871:3882 MySystem.TypeSafety TypeSafety not_so_empty thm
+R3871:3882 MySystem.TypeSafety TypeSafety not_so_empty thm
+R4077:4079 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4080:4081 MySystem.BaseSystem <> :::'<{'_x_'}>' not
+R4086:4087 MySystem.BaseSystem <> :::'<{'_x_'}>' not
+R4082:4083 MySystem.BaseSystem <> :baseSystem::'C'_'['_x_']' not
+R4085:4085 MySystem.BaseSystem <> :baseSystem::'C'_'['_x_']' not
+R4077:4079 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4080:4081 MySystem.BaseSystem <> :::'<{'_x_'}>' not
+R4086:4087 MySystem.BaseSystem <> :::'<{'_x_'}>' not
+R4082:4083 MySystem.BaseSystem <> :baseSystem::'C'_'['_x_']' not
+R4085:4085 MySystem.BaseSystem <> :baseSystem::'C'_'['_x_']' not
+R4478:4489 MySystem.TypeSafety TypeSafety not_so_empty thm
+R4478:4489 MySystem.TypeSafety TypeSafety not_so_empty thm
+R4557:4564 MySystem.TypeSafety TypeSafety so_empty thm
+R4557:4564 MySystem.TypeSafety TypeSafety so_empty thm
+R4699:4702 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4695:4697 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4714:4719 Coq.Strings.String <> string ind
+binder 4711:4711 <> z:21
+R4744:4748 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R4737:4739 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4724:4728 MySystem.Maps <> empty def
+R4730:4734 MySystem.BaseSystem <> CType ind
+R4736:4736 MySystem.TypeSafety <> z:21 var
+R4740:4743 Coq.Init.Datatypes <> None constr
+R4770:4772 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4749:4749 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R4752:4756 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R4759:4760 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R4767:4769 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R4769:4769 MySystem.TypeSafety <> z:21 var
+R4773:4776 Coq.Init.Datatypes <> None constr
+R4699:4702 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4695:4697 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4714:4719 Coq.Strings.String <> string ind
+binder 4711:4711 <> z:22
+R4744:4748 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R4737:4739 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4724:4728 MySystem.Maps <> empty def
+R4730:4734 MySystem.BaseSystem <> CType ind
+R4736:4736 MySystem.TypeSafety <> z:22 var
+R4740:4743 Coq.Init.Datatypes <> None constr
+R4770:4772 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4749:4749 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R4752:4756 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R4759:4760 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R4767:4769 MySystem.Maps <> :::x_'|->'_x_';'_x not
+R4769:4769 MySystem.TypeSafety <> z:22 var
+R4773:4776 Coq.Init.Datatypes <> None constr
+R4794:4808 MySystem.BaseSystem <> type_uniqueness prfax
+R4794:4808 MySystem.BaseSystem <> type_uniqueness prfax
+R4946:4950 MySystem.Maps <> empty def
+R4967:4973 MySystem.Maps <> t_empty def
+R4996:5001 MySystem.Maps <> update def
+R5018:5025 MySystem.Maps <> t_update def
+R5060:5062 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5050:5053 Coq.Init.Datatypes <> None constr
+R5055:5059 MySystem.BaseSystem <> CType ind
+R5064:5067 Coq.Init.Datatypes <> None constr
+R5069:5073 MySystem.BaseSystem <> CType ind
+R5060:5062 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5050:5053 Coq.Init.Datatypes <> None constr
+R5055:5059 MySystem.BaseSystem <> CType ind
+R5064:5067 Coq.Init.Datatypes <> None constr
+R5069:5073 MySystem.BaseSystem <> CType ind
+R5128:5137 Coq.Strings.String <> eqb def
+R5128:5137 Coq.Strings.String <> eqb def
+R5192:5198 Coq.Strings.String <> eqb_neq thm
+R5192:5198 Coq.Strings.String <> eqb_neq thm
+R5217:5219 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5217:5219 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5466:5471 MySystem.BaseSystem <> PTCong constr
+R5466:5471 MySystem.BaseSystem <> PTCong constr
+R5534:5543 MySystem.Smallstep <> multi_step constr
+R5534:5543 MySystem.Smallstep <> multi_step constr
+R5576:5585 MySystem.Smallstep <> multi_refl constr
+R5576:5585 MySystem.Smallstep <> multi_refl constr
+R5935:5946 MySystem.TypeSafety TypeSafety not_so_empty thm
+R5935:5946 MySystem.TypeSafety TypeSafety not_so_empty thm
+R6048:6052 MySystem.Maps <> :::x_'|->'_x not
+R6016:6030 MySystem.BaseSystem <> type_uniqueness prfax
+R6048:6052 MySystem.Maps <> :::x_'|->'_x not
+R6016:6030 MySystem.BaseSystem <> type_uniqueness prfax
+R6144:6149 MySystem.Maps <> update def
+R6165:6172 MySystem.Maps <> t_update def
+R6199:6208 Coq.Strings.String <> eqb def
+R6199:6208 Coq.Strings.String <> eqb def
+R6241:6246 Coq.Strings.String <> eqb_eq thm
+R6241:6246 Coq.Strings.String <> eqb_eq thm
+R6264:6266 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6264:6266 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6360:6364 MySystem.Maps <> empty def
+R6380:6386 MySystem.Maps <> t_empty def
+R6425:6427 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6415:6418 Coq.Init.Datatypes <> None constr
+R6420:6424 MySystem.BaseSystem <> CType ind
+R6429:6432 Coq.Init.Datatypes <> None constr
+R6434:6438 MySystem.BaseSystem <> CType ind
+R6425:6427 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6415:6418 Coq.Init.Datatypes <> None constr
+R6420:6424 MySystem.BaseSystem <> CType ind
+R6429:6432 Coq.Init.Datatypes <> None constr
+R6434:6438 MySystem.BaseSystem <> CType ind
+R6496:6505 Coq.Strings.String <> eqb def
+R6496:6505 Coq.Strings.String <> eqb def
+R6571:6577 Coq.Strings.String <> eqb_neq thm
+R6571:6577 Coq.Strings.String <> eqb_neq thm
+R6595:6597 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6595:6597 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6924:6926 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6927:6929 MySystem.BaseSystem <> :::'<{'_x_'}>' not
+R6938:6940 MySystem.BaseSystem <> :::'<{'_x_'}>' not
+R6931:6932 MySystem.BaseSystem <> :baseSystem::x_'('_x_')'_';'_x not
+R6934:6936 MySystem.BaseSystem <> :baseSystem::x_'('_x_')'_';'_x not
+R6924:6926 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6927:6929 MySystem.BaseSystem <> :::'<{'_x_'}>' not
+R6938:6940 MySystem.BaseSystem <> :::'<{'_x_'}>' not
+R6931:6932 MySystem.BaseSystem <> :baseSystem::x_'('_x_')'_';'_x not
+R6934:6936 MySystem.BaseSystem <> :baseSystem::x_'('_x_')'_';'_x not
+R7035:7042 MySystem.TypeSafety TypeSafety so_empty thm
+R7035:7042 MySystem.TypeSafety TypeSafety so_empty thm
+R7113:7122 MySystem.TypeSafety TypeSafety <> mod

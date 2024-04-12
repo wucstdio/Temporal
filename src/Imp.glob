@@ -1,0 +1,2125 @@
+DIGEST 64b10f3a2244808ac0d58941c8018a15
+FMySystem.Imp
+R897:905 Coq.Bool.Bool <> <> lib
+R932:939 Coq.Init.Nat <> <> lib
+R966:976 Coq.Arith.Arith <> <> lib
+R1003:1013 Coq.Arith.EqNat <> <> lib
+R1023:1025 Coq.Arith.PeanoNat Nat <> mod
+R1052:1054 Coq.micromega.Lia <> <> lib
+R1081:1090 Coq.Lists.List <> <> lib
+R1100:1112 Coq.Lists.List ListNotations <> mod
+R1139:1152 Coq.Strings.String <> <> lib
+R1184:1187 MySystem.Maps <> <> lib
+mod 1694:1697 <> AExp
+ind 1814:1817 AExp aexp
+constr 1833:1836 AExp ANum
+constr 1852:1856 AExp APlus
+constr 1877:1882 AExp AMinus
+constr 1903:1907 AExp AMult
+R1843:1845 Coq.Init.Datatypes <> nat ind
+binder 1839:1839 <> n:3
+R1867:1870 MySystem.Imp <> aexp:1 ind
+binder 1859:1860 <> a1:4
+binder 1862:1863 <> a2:5
+R1893:1896 MySystem.Imp <> aexp:1 ind
+binder 1885:1886 <> a1:6
+binder 1888:1889 <> a2:7
+R1918:1921 MySystem.Imp <> aexp:1 ind
+binder 1910:1911 <> a1:8
+binder 1913:1914 <> a2:9
+ind 1936:1939 AExp bexp
+constr 1955:1959 AExp BTrue
+constr 1965:1970 AExp BFalse
+constr 1976:1978 AExp BEq
+constr 1999:2002 AExp BNeq
+constr 2023:2025 AExp BLe
+constr 2046:2048 AExp BGt
+constr 2069:2072 AExp BNot
+constr 2089:2092 AExp BAnd
+R1989:1992 MySystem.Imp AExp aexp ind
+binder 1981:1982 <> a1:12
+binder 1984:1985 <> a2:13
+R2013:2016 MySystem.Imp AExp aexp ind
+binder 2005:2006 <> a1:14
+binder 2008:2009 <> a2:15
+R2036:2039 MySystem.Imp AExp aexp ind
+binder 2028:2029 <> a1:16
+binder 2031:2032 <> a2:17
+R2059:2062 MySystem.Imp AExp aexp ind
+binder 2051:2052 <> a1:18
+binder 2054:2055 <> a2:19
+R2079:2082 MySystem.Imp <> bexp:10 ind
+binder 2075:2075 <> b:20
+R2103:2106 MySystem.Imp <> bexp:10 ind
+binder 2095:2096 <> b1:21
+binder 2098:2099 <> b2:22
+def 4754:4758 AExp aeval
+R4765:4768 MySystem.Imp AExp aexp ind
+binder 4761:4761 <> a:23
+R4773:4775 Coq.Init.Datatypes <> nat ind
+R4788:4788 MySystem.Imp <> a:23 var
+R4799:4802 MySystem.Imp AExp ANum constr
+R4815:4819 MySystem.Imp AExp APlus constr
+R4831:4831 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R4840:4844 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R4853:4853 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R4832:4836 MySystem.Imp <> aeval:24 def
+R4845:4849 MySystem.Imp <> aeval:24 def
+R4859:4864 MySystem.Imp AExp AMinus constr
+R4875:4875 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R4884:4888 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R4897:4897 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R4876:4880 MySystem.Imp <> aeval:24 def
+R4889:4893 MySystem.Imp <> aeval:24 def
+R4903:4907 MySystem.Imp AExp AMult constr
+R4919:4919 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R4928:4932 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R4941:4941 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R4920:4924 MySystem.Imp <> aeval:24 def
+R4933:4937 MySystem.Imp <> aeval:24 def
+def 4959:4969 AExp test_aeval1
+R5005:5007 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4974:4978 MySystem.Imp AExp aeval def
+R4981:4985 MySystem.Imp AExp APlus constr
+R4988:4991 MySystem.Imp AExp ANum constr
+R4997:5000 MySystem.Imp AExp ANum constr
+def 5115:5119 AExp beval
+R5126:5129 MySystem.Imp AExp bexp ind
+binder 5122:5122 <> b:26
+R5134:5137 Coq.Init.Datatypes <> bool ind
+R5150:5150 MySystem.Imp <> b:26 var
+R5161:5165 MySystem.Imp AExp BTrue constr
+R5176:5179 Coq.Init.Datatypes <> true constr
+R5185:5190 MySystem.Imp AExp BFalse constr
+R5200:5204 Coq.Init.Datatypes <> false constr
+R5210:5212 MySystem.Imp AExp BEq constr
+R5225:5225 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R5234:5239 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R5248:5248 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R5226:5230 MySystem.Imp AExp aeval def
+R5240:5244 MySystem.Imp AExp aeval def
+R5254:5257 MySystem.Imp AExp BNeq constr
+R5269:5272 Coq.Init.Datatypes <> negb def
+R5275:5275 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R5284:5289 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R5298:5298 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R5276:5280 MySystem.Imp AExp aeval def
+R5290:5294 MySystem.Imp AExp aeval def
+R5305:5307 MySystem.Imp AExp BLe constr
+R5320:5320 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R5329:5335 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R5344:5344 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R5321:5325 MySystem.Imp AExp aeval def
+R5336:5340 MySystem.Imp AExp aeval def
+R5350:5352 MySystem.Imp AExp BGt constr
+R5365:5368 Coq.Init.Datatypes <> negb def
+R5371:5371 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R5380:5386 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R5395:5395 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R5372:5376 MySystem.Imp AExp aeval def
+R5387:5391 MySystem.Imp AExp aeval def
+R5402:5405 MySystem.Imp AExp BNot constr
+R5417:5420 Coq.Init.Datatypes <> negb def
+R5423:5427 MySystem.Imp <> beval:27 def
+R5437:5440 MySystem.Imp AExp BAnd constr
+R5452:5455 Coq.Init.Datatypes <> andb def
+R5469:5473 MySystem.Imp <> beval:27 def
+R5458:5462 MySystem.Imp <> beval:27 def
+def 5884:5897 AExp optimize_0plus
+R5902:5905 MySystem.Imp AExp aexp ind
+binder 5900:5900 <> a:29
+R5910:5913 MySystem.Imp AExp aexp ind
+R5926:5926 MySystem.Imp <> a:29 var
+R5937:5940 MySystem.Imp AExp ANum constr
+R5947:5950 MySystem.Imp AExp ANum constr
+R5958:5962 MySystem.Imp AExp APlus constr
+R5965:5968 MySystem.Imp AExp ANum constr
+R5979:5992 MySystem.Imp <> optimize_0plus:30 def
+R6001:6005 MySystem.Imp AExp APlus constr
+R6017:6021 MySystem.Imp AExp APlus constr
+R6025:6038 MySystem.Imp <> optimize_0plus:30 def
+R6045:6058 MySystem.Imp <> optimize_0plus:30 def
+R6068:6073 MySystem.Imp AExp AMinus constr
+R6084:6089 MySystem.Imp AExp AMinus constr
+R6092:6105 MySystem.Imp <> optimize_0plus:30 def
+R6112:6125 MySystem.Imp <> optimize_0plus:30 def
+R6135:6139 MySystem.Imp AExp AMult constr
+R6151:6155 MySystem.Imp AExp AMult constr
+R6159:6172 MySystem.Imp <> optimize_0plus:30 def
+R6179:6192 MySystem.Imp <> optimize_0plus:30 def
+def 6360:6378 AExp test_optimize_0plus
+R6512:6516 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6383:6396 MySystem.Imp AExp optimize_0plus def
+R6399:6403 MySystem.Imp AExp APlus constr
+R6406:6409 MySystem.Imp AExp ANum constr
+R6439:6443 MySystem.Imp AExp APlus constr
+R6446:6449 MySystem.Imp AExp ANum constr
+R6486:6490 MySystem.Imp AExp APlus constr
+R6493:6496 MySystem.Imp AExp ANum constr
+R6502:6505 MySystem.Imp AExp ANum constr
+R6517:6521 MySystem.Imp AExp APlus constr
+R6524:6527 MySystem.Imp AExp ANum constr
+R6533:6536 MySystem.Imp AExp ANum constr
+prf 6762:6781 AExp optimize_0plus_sound
+binder 6791:6791 <> a:32
+R6820:6822 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6796:6800 MySystem.Imp AExp aeval def
+R6803:6816 MySystem.Imp AExp optimize_0plus def
+R6818:6818 MySystem.Imp <> a:32 var
+R6823:6827 MySystem.Imp AExp aeval def
+R6829:6829 MySystem.Imp <> a:32 var
+prf 8969:8974 AExp silly1
+binder 8986:8986 <> P:33
+R8998:9001 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8997:8997 MySystem.Imp <> P:33 var
+R9002:9002 MySystem.Imp <> P:33 var
+prf 9172:9177 AExp silly2
+binder 9188:9189 <> ae:34
+R9200:9202 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9192:9196 MySystem.Imp AExp aeval def
+R9198:9199 MySystem.Imp <> ae:34 var
+R9203:9207 MySystem.Imp AExp aeval def
+R9209:9210 MySystem.Imp <> ae:34 var
+prf 9864:9866 AExp foo
+binder 9877:9877 <> n:35
+R9887:9889 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9881:9885 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R9886:9886 MySystem.Imp <> n:35 var
+R9890:9893 Coq.Init.Datatypes <> true constr
+prf 10140:10143 AExp foo'
+binder 10154:10154 <> n:36
+R10164:10166 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10158:10162 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R10163:10163 MySystem.Imp <> n:36 var
+R10167:10170 Coq.Init.Datatypes <> true constr
+prf 10507:10527 AExp optimize_0plus_sound'
+binder 10537:10537 <> a:37
+R10566:10568 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10542:10546 MySystem.Imp AExp aeval def
+R10549:10562 MySystem.Imp AExp optimize_0plus def
+R10564:10564 MySystem.Imp <> a:37 var
+R10569:10573 MySystem.Imp AExp aeval def
+R10575:10575 MySystem.Imp <> a:37 var
+prf 13405:13426 AExp optimize_0plus_sound''
+binder 13436:13436 <> a:38
+R13465:13467 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13441:13445 MySystem.Imp AExp aeval def
+R13448:13461 MySystem.Imp AExp optimize_0plus def
+R13463:13463 MySystem.Imp <> a:38 var
+R13468:13472 MySystem.Imp AExp aeval def
+R13474:13474 MySystem.Imp <> a:38 var
+prf 14902:14905 AExp In10
+R14909:14910 Coq.Lists.List <> In def
+R14915:14915 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14917:14917 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14919:14919 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14921:14921 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14923:14923 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14925:14925 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14927:14927 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14929:14929 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14931:14931 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14933:14933 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R14936:14936 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+prf 15195:15199 AExp In10'
+R15203:15204 Coq.Lists.List <> In def
+R15209:15209 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15211:15211 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15213:15213 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15215:15215 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15217:15217 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15219:15219 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15221:15221 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15223:15223 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15225:15225 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15227:15227 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R15230:15230 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+prf 15554:15564 AExp repeat_loop
+R15582:15584 Coq.Init.Datatypes <> nat ind
+binder 15576:15576 <> m:39
+binder 15578:15578 <> n:40
+R15595:15597 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15591:15593 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R15590:15590 MySystem.Imp <> m:39 var
+R15594:15594 MySystem.Imp <> n:40 var
+R15599:15601 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R15598:15598 MySystem.Imp <> n:40 var
+R15602:15602 MySystem.Imp <> m:39 var
+def 16851:16866 AExp optimize_0plus_b
+R16873:16876 MySystem.Imp AExp bexp ind
+binder 16869:16869 <> b:41
+R16881:16884 MySystem.Imp AExp bexp ind
+prf 16962:16983 AExp optimize_0plus_b_sound
+binder 16994:16994 <> b:43
+R17025:17027 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16999:17003 MySystem.Imp AExp beval def
+R17006:17021 MySystem.Imp AExp optimize_0plus_b prfax
+R17023:17023 MySystem.Imp <> b:43 var
+R17028:17032 MySystem.Imp AExp beval def
+R17034:17034 MySystem.Imp <> b:43 var
+prf 19297:19311 AExp invert_example1
+R19329:19331 Coq.Init.Datatypes <> nat ind
+binder 19322:19322 <> a:44
+binder 19324:19324 <> b:45
+binder 19326:19326 <> c:46
+R19349:19352 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19341:19343 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19335:19335 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19337:19338 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19340:19340 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19336:19336 MySystem.Imp <> a:44 var
+R19339:19339 MySystem.Imp <> b:45 var
+R19344:19344 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19346:19346 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19348:19348 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19345:19345 MySystem.Imp <> a:44 var
+R19347:19347 MySystem.Imp <> c:46 var
+R19354:19356 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19353:19353 MySystem.Imp <> b:45 var
+R19357:19357 MySystem.Imp <> c:46 var
+def 20184:20207 AExp silly_presburger_example
+binder 20218:20218 <> m:47
+binder 20220:20220 <> n:48
+binder 20222:20222 <> o:49
+binder 20224:20224 <> p:50
+R20260:20265 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20243:20246 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R20234:20237 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R20230:20232 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20229:20229 MySystem.Imp <> m:47 var
+R20233:20233 MySystem.Imp <> n:48 var
+R20239:20241 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20238:20238 MySystem.Imp <> n:48 var
+R20242:20242 MySystem.Imp <> o:49 var
+R20252:20254 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20248:20250 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20247:20247 MySystem.Imp <> o:49 var
+R20256:20258 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20255:20255 MySystem.Imp <> p:50 var
+R20267:20270 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R20266:20266 MySystem.Imp <> m:47 var
+R20271:20271 MySystem.Imp <> p:50 var
+def 20310:20322 AExp add_comm__lia
+binder 20333:20333 <> m:51
+binder 20335:20335 <> n:52
+R20347:20349 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20343:20345 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20342:20342 MySystem.Imp <> m:51 var
+R20346:20346 MySystem.Imp <> n:52 var
+R20351:20353 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20350:20350 MySystem.Imp <> n:52 var
+R20354:20354 MySystem.Imp <> m:51 var
+def 20393:20406 AExp add_assoc__lia
+binder 20417:20417 <> m:53
+binder 20419:20419 <> n:54
+binder 20421:20421 <> p:55
+R20439:20441 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20429:20432 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20438:20438 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20428:20428 MySystem.Imp <> m:53 var
+R20434:20436 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20433:20433 MySystem.Imp <> n:54 var
+R20437:20437 MySystem.Imp <> p:55 var
+R20447:20449 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20443:20445 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R20442:20442 MySystem.Imp <> m:53 var
+R20446:20446 MySystem.Imp <> n:54 var
+R20450:20450 MySystem.Imp <> p:55 var
+mod 22381:22396 <> AExp.aevalR_first_try
+ind 22410:22415 AExp.aevalR_first_try aevalR
+constr 22446:22451 AExp.aevalR_first_try E_ANum
+constr 22493:22499 AExp.aevalR_first_try E_APlus
+constr 22617:22624 AExp.aevalR_first_try E_AMinus
+constr 22743:22749 AExp.aevalR_first_try E_AMult
+R22423:22426 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22419:22422 MySystem.Imp AExp aexp ind
+R22430:22433 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22427:22429 Coq.Init.Datatypes <> nat ind
+R22458:22460 Coq.Init.Datatypes <> nat ind
+binder 22454:22454 <> n:58
+R22471:22476 MySystem.Imp <> aevalR:56 ind
+R22487:22487 MySystem.Imp <> n:58 var
+R22479:22482 MySystem.Imp AExp ANum constr
+R22484:22484 MySystem.Imp <> n:58 var
+R22510:22513 MySystem.Imp AExp aexp ind
+binder 22502:22503 <> e1:59
+binder 22505:22506 <> e2:60
+R22525:22527 Coq.Init.Datatypes <> nat ind
+binder 22517:22518 <> n1:61
+binder 22520:22521 <> n2:62
+R22550:22559 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22538:22543 MySystem.Imp <> aevalR:56 ind
+R22548:22549 MySystem.Imp <> n1:61 var
+R22545:22546 MySystem.Imp <> e1:59 var
+R22572:22581 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22560:22565 MySystem.Imp <> aevalR:56 ind
+R22570:22571 MySystem.Imp <> n2:62 var
+R22567:22568 MySystem.Imp <> e2:60 var
+R22582:22587 MySystem.Imp <> aevalR:56 ind
+R22606:22608 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R22604:22605 MySystem.Imp <> n1:61 var
+R22609:22610 MySystem.Imp <> n2:62 var
+R22590:22594 MySystem.Imp AExp APlus constr
+R22596:22597 MySystem.Imp <> e1:59 var
+R22599:22600 MySystem.Imp <> e2:60 var
+R22635:22638 MySystem.Imp AExp aexp ind
+binder 22627:22628 <> e1:63
+binder 22630:22631 <> e2:64
+R22650:22652 Coq.Init.Datatypes <> nat ind
+binder 22642:22643 <> n1:65
+binder 22645:22646 <> n2:66
+R22675:22684 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22663:22668 MySystem.Imp <> aevalR:56 ind
+R22673:22674 MySystem.Imp <> n1:65 var
+R22670:22671 MySystem.Imp <> e1:63 var
+R22697:22706 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22685:22690 MySystem.Imp <> aevalR:56 ind
+R22695:22696 MySystem.Imp <> n2:66 var
+R22692:22693 MySystem.Imp <> e2:64 var
+R22707:22712 MySystem.Imp <> aevalR:56 ind
+R22732:22734 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R22730:22731 MySystem.Imp <> n1:65 var
+R22735:22736 MySystem.Imp <> n2:66 var
+R22715:22720 MySystem.Imp AExp AMinus constr
+R22722:22723 MySystem.Imp <> e1:63 var
+R22725:22726 MySystem.Imp <> e2:64 var
+R22760:22763 MySystem.Imp AExp aexp ind
+binder 22752:22753 <> e1:67
+binder 22755:22756 <> e2:68
+R22775:22777 Coq.Init.Datatypes <> nat ind
+binder 22767:22768 <> n1:69
+binder 22770:22771 <> n2:70
+R22800:22809 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22788:22793 MySystem.Imp <> aevalR:56 ind
+R22798:22799 MySystem.Imp <> n1:69 var
+R22795:22796 MySystem.Imp <> e1:67 var
+R22822:22831 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22810:22815 MySystem.Imp <> aevalR:56 ind
+R22820:22821 MySystem.Imp <> n2:70 var
+R22817:22818 MySystem.Imp <> e2:68 var
+R22832:22837 MySystem.Imp <> aevalR:56 ind
+R22856:22858 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R22854:22855 MySystem.Imp <> n1:69 var
+R22859:22860 MySystem.Imp <> n2:70 var
+R22840:22844 MySystem.Imp AExp AMult constr
+R22846:22847 MySystem.Imp <> e1:67 var
+R22849:22850 MySystem.Imp <> e2:68 var
+mod 22872:22886 <> AExp.aevalR_first_try.HypothesisNames
+ind 23053:23058 AExp.aevalR_first_try.HypothesisNames aevalR
+constr 23089:23094 AExp.aevalR_first_try.HypothesisNames E_ANum
+constr 23136:23142 AExp.aevalR_first_try.HypothesisNames E_APlus
+constr 23268:23275 AExp.aevalR_first_try.HypothesisNames E_AMinus
+constr 23402:23408 AExp.aevalR_first_try.HypothesisNames E_AMult
+R23066:23069 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23062:23065 MySystem.Imp AExp aexp ind
+R23073:23076 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23070:23072 Coq.Init.Datatypes <> nat ind
+R23101:23103 Coq.Init.Datatypes <> nat ind
+binder 23097:23097 <> n:73
+R23114:23119 MySystem.Imp <> aevalR:71 ind
+R23130:23130 MySystem.Imp <> n:73 var
+R23122:23125 MySystem.Imp AExp ANum constr
+R23127:23127 MySystem.Imp <> n:73 var
+R23153:23156 MySystem.Imp AExp aexp ind
+binder 23145:23146 <> e1:74
+binder 23148:23149 <> e2:75
+R23168:23170 Coq.Init.Datatypes <> nat ind
+binder 23160:23161 <> n1:76
+binder 23163:23164 <> n2:77
+R23185:23190 MySystem.Imp <> aevalR:71 ind
+R23195:23196 MySystem.Imp <> n1:76 var
+R23192:23193 MySystem.Imp <> e1:74 var
+binder 23180:23181 <> H1:78
+R23211:23216 MySystem.Imp <> aevalR:71 ind
+R23221:23222 MySystem.Imp <> n2:77 var
+R23218:23219 MySystem.Imp <> e2:75 var
+binder 23206:23207 <> H2:79
+R23233:23238 MySystem.Imp <> aevalR:71 ind
+R23257:23259 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R23255:23256 MySystem.Imp <> n1:76 var
+R23260:23261 MySystem.Imp <> n2:77 var
+R23241:23245 MySystem.Imp AExp APlus constr
+R23247:23248 MySystem.Imp <> e1:74 var
+R23250:23251 MySystem.Imp <> e2:75 var
+R23286:23289 MySystem.Imp AExp aexp ind
+binder 23278:23279 <> e1:80
+binder 23281:23282 <> e2:81
+R23301:23303 Coq.Init.Datatypes <> nat ind
+binder 23293:23294 <> n1:82
+binder 23296:23297 <> n2:83
+R23318:23323 MySystem.Imp <> aevalR:71 ind
+R23328:23329 MySystem.Imp <> n1:82 var
+R23325:23326 MySystem.Imp <> e1:80 var
+binder 23313:23314 <> H1:84
+R23344:23349 MySystem.Imp <> aevalR:71 ind
+R23354:23355 MySystem.Imp <> n2:83 var
+R23351:23352 MySystem.Imp <> e2:81 var
+binder 23339:23340 <> H2:85
+R23366:23371 MySystem.Imp <> aevalR:71 ind
+R23391:23393 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R23389:23390 MySystem.Imp <> n1:82 var
+R23394:23395 MySystem.Imp <> n2:83 var
+R23374:23379 MySystem.Imp AExp AMinus constr
+R23381:23382 MySystem.Imp <> e1:80 var
+R23384:23385 MySystem.Imp <> e2:81 var
+R23419:23422 MySystem.Imp AExp aexp ind
+binder 23411:23412 <> e1:86
+binder 23414:23415 <> e2:87
+R23434:23436 Coq.Init.Datatypes <> nat ind
+binder 23426:23427 <> n1:88
+binder 23429:23430 <> n2:89
+R23451:23456 MySystem.Imp <> aevalR:71 ind
+R23461:23462 MySystem.Imp <> n1:88 var
+R23458:23459 MySystem.Imp <> e1:86 var
+binder 23446:23447 <> H1:90
+R23477:23482 MySystem.Imp <> aevalR:71 ind
+R23487:23488 MySystem.Imp <> n2:89 var
+R23484:23485 MySystem.Imp <> e2:87 var
+binder 23472:23473 <> H2:91
+R23499:23504 MySystem.Imp <> aevalR:71 ind
+R23523:23525 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R23521:23522 MySystem.Imp <> n1:88 var
+R23526:23527 MySystem.Imp <> n2:89 var
+R23507:23511 MySystem.Imp AExp AMult constr
+R23513:23514 MySystem.Imp <> e1:86 var
+R23516:23517 MySystem.Imp <> e2:87 var
+R23711:23725 MySystem.Imp AExp.aevalR_first_try.HypothesisNames <> mod
+R23927:23932 MySystem.Imp AExp.aevalR_first_try aevalR ind
+not 23902:23902 AExp.aevalR_first_try ::type_scope:x_'==>'_x
+R24013:24028 MySystem.Imp AExp.aevalR_first_try <> mod
+ind 24275:24280 AExp aevalR
+constr 24311:24316 AExp E_ANum
+constr 24355:24361 AExp E_APlus
+constr 24475:24482 AExp E_AMinus
+constr 24596:24602 AExp E_AMult
+R24288:24291 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24284:24287 MySystem.Imp AExp aexp ind
+R24295:24298 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24292:24294 Coq.Init.Datatypes <> nat ind
+R24737:24742 MySystem.Imp <> aevalR:93 ind
+R24323:24325 Coq.Init.Datatypes <> nat ind
+binder 24319:24319 <> n:94
+R24336:24336 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24343:24348 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24337:24340 MySystem.Imp AExp ANum constr
+R24342:24342 MySystem.Imp <> n:94 var
+R24349:24349 MySystem.Imp <> n:94 var
+R24372:24375 MySystem.Imp AExp aexp ind
+binder 24364:24365 <> e1:95
+binder 24367:24368 <> e2:96
+R24387:24389 Coq.Init.Datatypes <> nat ind
+binder 24379:24380 <> n1:97
+binder 24382:24383 <> n2:98
+R24400:24400 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24410:24420 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24403:24407 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24401:24402 MySystem.Imp <> e1:95 var
+R24408:24409 MySystem.Imp <> n1:97 var
+R24421:24421 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24431:24441 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24424:24428 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24422:24423 MySystem.Imp <> e2:96 var
+R24429:24430 MySystem.Imp <> n2:98 var
+R24442:24442 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24454:24461 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24469:24469 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24443:24447 MySystem.Imp AExp APlus constr
+R24449:24450 MySystem.Imp <> e1:95 var
+R24452:24453 MySystem.Imp <> e2:96 var
+R24464:24466 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R24462:24463 MySystem.Imp <> n1:97 var
+R24467:24468 MySystem.Imp <> n2:98 var
+R24493:24496 MySystem.Imp AExp aexp ind
+binder 24485:24486 <> e1:99
+binder 24488:24489 <> e2:100
+R24508:24510 Coq.Init.Datatypes <> nat ind
+binder 24500:24501 <> n1:101
+binder 24503:24504 <> n2:102
+R24521:24521 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24531:24541 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24524:24528 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24522:24523 MySystem.Imp <> e1:99 var
+R24529:24530 MySystem.Imp <> n1:101 var
+R24542:24542 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24552:24562 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24545:24549 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24543:24544 MySystem.Imp <> e2:100 var
+R24550:24551 MySystem.Imp <> n2:102 var
+R24563:24563 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24576:24582 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24590:24590 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24564:24569 MySystem.Imp AExp AMinus constr
+R24571:24572 MySystem.Imp <> e1:99 var
+R24574:24575 MySystem.Imp <> e2:100 var
+R24585:24587 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R24583:24584 MySystem.Imp <> n1:101 var
+R24588:24589 MySystem.Imp <> n2:102 var
+R24613:24616 MySystem.Imp AExp aexp ind
+binder 24605:24606 <> e1:103
+binder 24608:24609 <> e2:104
+R24628:24630 Coq.Init.Datatypes <> nat ind
+binder 24620:24621 <> n1:105
+binder 24623:24624 <> n2:106
+R24641:24641 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24651:24661 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24644:24648 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24642:24643 MySystem.Imp <> e1:103 var
+R24649:24650 MySystem.Imp <> n1:105 var
+R24662:24662 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24672:24682 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24665:24669 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24663:24664 MySystem.Imp <> e2:104 var
+R24670:24671 MySystem.Imp <> n2:106 var
+R24683:24683 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24695:24702 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24710:24710 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R24684:24688 MySystem.Imp AExp AMult constr
+R24690:24691 MySystem.Imp <> e1:103 var
+R24693:24694 MySystem.Imp <> e2:104 var
+R24705:24707 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R24703:24704 MySystem.Imp <> n1:105 var
+R24708:24709 MySystem.Imp <> n2:106 var
+R24737:24742 MySystem.Imp AExp aevalR ind
+not 24721:24721 AExp ::type_scope:x_'==>'_x
+def 28043:28070 AExp manual_grade_for_beval_rules
+R28074:28079 Coq.Init.Datatypes <> option ind
+R28085:28085 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R28082:28084 Coq.Init.Datatypes <> nat ind
+R28086:28091 Coq.Strings.String <> string ind
+R28097:28100 Coq.Init.Datatypes <> None constr
+prf 28347:28362 AExp aeval_iff_aevalR
+binder 28373:28373 <> a:107
+binder 28375:28375 <> n:108
+R28380:28380 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R28388:28393 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R28382:28386 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R28381:28381 MySystem.Imp <> a:107 var
+R28387:28387 MySystem.Imp <> n:108 var
+R28401:28403 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28394:28398 MySystem.Imp AExp aeval def
+R28400:28400 MySystem.Imp <> a:107 var
+R28404:28404 MySystem.Imp <> n:108 var
+R28866:28871 MySystem.Imp AExp E_ANum constr
+R28866:28871 MySystem.Imp AExp E_ANum constr
+R28904:28910 MySystem.Imp AExp E_APlus constr
+R28904:28910 MySystem.Imp AExp E_APlus constr
+R29010:29017 MySystem.Imp AExp E_AMinus constr
+R29010:29017 MySystem.Imp AExp E_AMinus constr
+R29116:29122 MySystem.Imp AExp E_AMult constr
+R29116:29122 MySystem.Imp AExp E_AMult constr
+prf 29288:29304 AExp aeval_iff_aevalR'
+binder 29315:29315 <> a:109
+binder 29317:29317 <> n:110
+R29322:29322 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R29330:29335 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R29324:29328 MySystem.Imp AExp ::type_scope:x_'==>'_x not
+R29323:29323 MySystem.Imp <> a:109 var
+R29329:29329 MySystem.Imp <> n:110 var
+R29343:29345 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29336:29340 MySystem.Imp AExp aeval def
+R29342:29342 MySystem.Imp <> a:109 var
+R29346:29346 MySystem.Imp <> n:110 var
+ind 29836:29841 AExp bevalR
+R29848:29851 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29844:29847 MySystem.Imp AExp bexp ind
+R29856:29859 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29852:29855 Coq.Init.Datatypes <> bool ind
+R29910:29915 MySystem.Imp <> bevalR:112 ind
+R29910:29915 MySystem.Imp AExp bevalR ind
+not 29893:29893 AExp ::type_scope:x_'==>b'_x
+prf 29944:29959 AExp beval_iff_bevalR
+binder 29970:29970 <> b:113
+binder 29972:29973 <> bv:114
+R29987:29991 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R29979:29984 MySystem.Imp AExp ::type_scope:x_'==>b'_x not
+R29978:29978 MySystem.Imp <> b:113 var
+R29985:29986 MySystem.Imp <> bv:114 var
+R29999:30001 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29992:29996 MySystem.Imp AExp beval def
+R29998:29998 MySystem.Imp <> b:113 var
+R30002:30003 MySystem.Imp <> bv:114 var
+R30059:30062 MySystem.Imp AExp <> mod
+mod 30532:30546 <> aevalR_division
+ind 30659:30662 aevalR_division aexp
+constr 30678:30681 aevalR_division ANum
+constr 30697:30701 aevalR_division APlus
+constr 30722:30727 aevalR_division AMinus
+constr 30748:30752 aevalR_division AMult
+constr 30773:30776 aevalR_division ADiv
+R30688:30690 Coq.Init.Datatypes <> nat ind
+binder 30684:30684 <> n:117
+R30712:30715 MySystem.Imp <> aexp:115 ind
+binder 30704:30705 <> a1:118
+binder 30707:30708 <> a2:119
+R30738:30741 MySystem.Imp <> aexp:115 ind
+binder 30730:30731 <> a1:120
+binder 30733:30734 <> a2:121
+R30763:30766 MySystem.Imp <> aexp:115 ind
+binder 30755:30756 <> a1:122
+binder 30758:30759 <> a2:123
+R30787:30790 MySystem.Imp <> aexp:115 ind
+binder 30779:30780 <> a1:124
+binder 30782:30783 <> a2:125
+ind 31132:31137 aevalR_division aevalR
+constr 31168:31173 aevalR_division E_ANum
+constr 31212:31218 aevalR_division E_APlus
+constr 31319:31326 aevalR_division E_AMinus
+constr 31428:31434 aevalR_division E_AMult
+constr 31535:31540 aevalR_division E_ADiv
+R31145:31148 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31141:31144 MySystem.Imp aevalR_division aexp ind
+R31152:31155 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31149:31151 Coq.Init.Datatypes <> nat ind
+R31720:31725 MySystem.Imp <> aevalR:127 ind
+R31180:31182 Coq.Init.Datatypes <> nat ind
+binder 31176:31176 <> n:128
+R31193:31193 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31200:31205 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31194:31197 MySystem.Imp aevalR_division ANum constr
+R31199:31199 MySystem.Imp <> n:128 var
+R31206:31206 MySystem.Imp <> n:128 var
+R31229:31232 MySystem.Imp aevalR_division aexp ind
+binder 31221:31222 <> a1:129
+binder 31224:31225 <> a2:130
+R31244:31246 Coq.Init.Datatypes <> nat ind
+binder 31236:31237 <> n1:131
+binder 31239:31240 <> n2:132
+R31257:31257 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31267:31271 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31260:31264 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31258:31259 MySystem.Imp <> a1:129 var
+R31265:31266 MySystem.Imp <> n1:131 var
+R31272:31272 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31282:31286 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31275:31279 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31273:31274 MySystem.Imp <> a2:130 var
+R31280:31281 MySystem.Imp <> n2:132 var
+R31287:31287 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31299:31305 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31313:31313 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31288:31292 MySystem.Imp aevalR_division APlus constr
+R31294:31295 MySystem.Imp <> a1:129 var
+R31297:31298 MySystem.Imp <> a2:130 var
+R31308:31310 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R31306:31307 MySystem.Imp <> n1:131 var
+R31311:31312 MySystem.Imp <> n2:132 var
+R31337:31340 MySystem.Imp aevalR_division aexp ind
+binder 31329:31330 <> a1:133
+binder 31332:31333 <> a2:134
+R31352:31354 Coq.Init.Datatypes <> nat ind
+binder 31344:31345 <> n1:135
+binder 31347:31348 <> n2:136
+R31365:31365 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31375:31379 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31368:31372 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31366:31367 MySystem.Imp <> a1:133 var
+R31373:31374 MySystem.Imp <> n1:135 var
+R31380:31380 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31390:31394 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31383:31387 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31381:31382 MySystem.Imp <> a2:134 var
+R31388:31389 MySystem.Imp <> n2:136 var
+R31395:31395 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31408:31414 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31422:31422 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31396:31401 MySystem.Imp aevalR_division AMinus constr
+R31403:31404 MySystem.Imp <> a1:133 var
+R31406:31407 MySystem.Imp <> a2:134 var
+R31417:31419 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R31415:31416 MySystem.Imp <> n1:135 var
+R31420:31421 MySystem.Imp <> n2:136 var
+R31445:31448 MySystem.Imp aevalR_division aexp ind
+binder 31437:31438 <> a1:137
+binder 31440:31441 <> a2:138
+R31460:31462 Coq.Init.Datatypes <> nat ind
+binder 31452:31453 <> n1:139
+binder 31455:31456 <> n2:140
+R31473:31473 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31483:31487 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31476:31480 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31474:31475 MySystem.Imp <> a1:137 var
+R31481:31482 MySystem.Imp <> n1:139 var
+R31488:31488 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31498:31502 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31491:31495 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31489:31490 MySystem.Imp <> a2:138 var
+R31496:31497 MySystem.Imp <> n2:140 var
+R31503:31503 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31515:31521 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31529:31529 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31504:31508 MySystem.Imp aevalR_division AMult constr
+R31510:31511 MySystem.Imp <> a1:137 var
+R31513:31514 MySystem.Imp <> a2:138 var
+R31524:31526 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R31522:31523 MySystem.Imp <> n1:139 var
+R31527:31528 MySystem.Imp <> n2:140 var
+R31551:31554 MySystem.Imp aevalR_division aexp ind
+binder 31543:31544 <> a1:141
+binder 31546:31547 <> a2:142
+R31569:31571 Coq.Init.Datatypes <> nat ind
+binder 31558:31559 <> n1:143
+binder 31561:31562 <> n2:144
+binder 31564:31565 <> n3:145
+R31608:31608 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31618:31622 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31611:31615 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31609:31610 MySystem.Imp <> a1:141 var
+R31616:31617 MySystem.Imp <> n1:143 var
+R31623:31623 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31633:31637 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31626:31630 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31624:31625 MySystem.Imp <> a2:142 var
+R31631:31632 MySystem.Imp <> n2:144 var
+R31638:31638 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31645:31655 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31641:31643 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R31639:31640 MySystem.Imp <> n2:144 var
+R31656:31656 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31672:31676 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31667:31669 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R31657:31660 Coq.Init.Peano <> mult abbrev
+R31662:31663 MySystem.Imp <> n2:144 var
+R31665:31666 MySystem.Imp <> n3:145 var
+R31670:31671 MySystem.Imp <> n1:143 var
+R31677:31677 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31688:31693 MySystem.Imp aevalR_division ::type_scope:x_'==>'_x not
+R31678:31681 MySystem.Imp aevalR_division ADiv constr
+R31683:31684 MySystem.Imp <> a1:141 var
+R31686:31687 MySystem.Imp <> a2:142 var
+R31694:31695 MySystem.Imp <> n3:145 var
+R31720:31725 MySystem.Imp aevalR_division aevalR ind
+not 31704:31704 aevalR_division ::type_scope:x_'==>'_x
+R31904:31918 MySystem.Imp aevalR_division <> mod
+mod 31929:31943 <> aevalR_extended
+ind 32422:32425 aevalR_extended aexp
+constr 32441:32444 aevalR_extended AAny
+constr 32491:32494 aevalR_extended ANum
+constr 32510:32514 aevalR_extended APlus
+constr 32535:32540 aevalR_extended AMinus
+constr 32561:32565 aevalR_extended AMult
+R32501:32503 Coq.Init.Datatypes <> nat ind
+binder 32497:32497 <> n:148
+R32525:32528 MySystem.Imp <> aexp:146 ind
+binder 32517:32518 <> a1:149
+binder 32520:32521 <> a2:150
+R32551:32554 MySystem.Imp <> aexp:146 ind
+binder 32543:32544 <> a1:151
+binder 32546:32547 <> a2:152
+R32576:32579 MySystem.Imp <> aexp:146 ind
+binder 32568:32569 <> a1:153
+binder 32571:32572 <> a2:154
+ind 32776:32781 aevalR_extended aevalR
+constr 32812:32816 aevalR_extended E_Any
+constr 32889:32894 aevalR_extended E_ANum
+constr 32933:32939 aevalR_extended E_APlus
+constr 33040:33047 aevalR_extended E_AMinus
+constr 33149:33155 aevalR_extended E_AMult
+R32789:32792 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32785:32788 MySystem.Imp aevalR_extended aexp ind
+R32796:32799 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32793:32795 Coq.Init.Datatypes <> nat ind
+R33275:33280 MySystem.Imp <> aevalR:156 ind
+R32823:32825 Coq.Init.Datatypes <> nat ind
+binder 32819:32819 <> n:157
+R32840:32844 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R32836:32839 MySystem.Imp aevalR_extended AAny constr
+R32845:32845 MySystem.Imp <> n:157 var
+R32901:32903 Coq.Init.Datatypes <> nat ind
+binder 32897:32897 <> n:158
+R32914:32914 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R32921:32926 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R32915:32918 MySystem.Imp aevalR_extended ANum constr
+R32920:32920 MySystem.Imp <> n:158 var
+R32927:32927 MySystem.Imp <> n:158 var
+R32950:32953 MySystem.Imp aevalR_extended aexp ind
+binder 32942:32943 <> a1:159
+binder 32945:32946 <> a2:160
+R32965:32967 Coq.Init.Datatypes <> nat ind
+binder 32957:32958 <> n1:161
+binder 32960:32961 <> n2:162
+R32978:32978 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32988:32992 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32981:32985 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R32979:32980 MySystem.Imp <> a1:159 var
+R32986:32987 MySystem.Imp <> n1:161 var
+R32993:32993 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33003:33007 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32996:33000 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R32994:32995 MySystem.Imp <> a2:160 var
+R33001:33002 MySystem.Imp <> n2:162 var
+R33008:33008 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33020:33026 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33034:33034 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33009:33013 MySystem.Imp aevalR_extended APlus constr
+R33015:33016 MySystem.Imp <> a1:159 var
+R33018:33019 MySystem.Imp <> a2:160 var
+R33029:33031 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R33027:33028 MySystem.Imp <> n1:161 var
+R33032:33033 MySystem.Imp <> n2:162 var
+R33058:33061 MySystem.Imp aevalR_extended aexp ind
+binder 33050:33051 <> a1:163
+binder 33053:33054 <> a2:164
+R33073:33075 Coq.Init.Datatypes <> nat ind
+binder 33065:33066 <> n1:165
+binder 33068:33069 <> n2:166
+R33086:33086 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33096:33100 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33089:33093 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33087:33088 MySystem.Imp <> a1:163 var
+R33094:33095 MySystem.Imp <> n1:165 var
+R33101:33101 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33111:33115 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33104:33108 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33102:33103 MySystem.Imp <> a2:164 var
+R33109:33110 MySystem.Imp <> n2:166 var
+R33116:33116 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33129:33135 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33143:33143 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33117:33122 MySystem.Imp aevalR_extended AMinus constr
+R33124:33125 MySystem.Imp <> a1:163 var
+R33127:33128 MySystem.Imp <> a2:164 var
+R33138:33140 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R33136:33137 MySystem.Imp <> n1:165 var
+R33141:33142 MySystem.Imp <> n2:166 var
+R33166:33169 MySystem.Imp aevalR_extended aexp ind
+binder 33158:33159 <> a1:167
+binder 33161:33162 <> a2:168
+R33181:33183 Coq.Init.Datatypes <> nat ind
+binder 33173:33174 <> n1:169
+binder 33176:33177 <> n2:170
+R33194:33194 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33204:33208 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33197:33201 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33195:33196 MySystem.Imp <> a1:167 var
+R33202:33203 MySystem.Imp <> n1:169 var
+R33209:33209 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33219:33223 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33212:33216 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33210:33211 MySystem.Imp <> a2:168 var
+R33217:33218 MySystem.Imp <> n2:170 var
+R33224:33224 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33236:33242 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33250:33250 MySystem.Imp aevalR_extended ::type_scope:x_'==>'_x not
+R33225:33229 MySystem.Imp aevalR_extended AMult constr
+R33231:33232 MySystem.Imp <> a1:167 var
+R33234:33235 MySystem.Imp <> a2:168 var
+R33245:33247 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R33243:33244 MySystem.Imp <> n1:169 var
+R33248:33249 MySystem.Imp <> n2:170 var
+R33275:33280 MySystem.Imp aevalR_extended aevalR ind
+not 33259:33259 aevalR_extended ::type_scope:x_'==>'_x
+R33306:33320 MySystem.Imp aevalR_extended <> mod
+def 35956:35960 <> state
+R35965:35973 MySystem.Maps <> total_map def
+R35975:35977 Coq.Init.Datatypes <> nat ind
+ind 36201:36204 <> aexp
+constr 36220:36223 <> ANum
+constr 36239:36241 <> AId
+constr 36288:36292 <> APlus
+constr 36313:36318 <> AMinus
+constr 36339:36343 <> AMult
+R36230:36232 Coq.Init.Datatypes <> nat ind
+binder 36226:36226 <> n:173
+R36248:36253 Coq.Strings.String <> string ind
+binder 36244:36244 <> x:174
+R36303:36306 MySystem.Imp <> aexp:171 ind
+binder 36295:36296 <> a1:175
+binder 36298:36299 <> a2:176
+R36329:36332 MySystem.Imp <> aexp:171 ind
+binder 36321:36322 <> a1:177
+binder 36324:36325 <> a2:178
+R36354:36357 MySystem.Imp <> aexp:171 ind
+binder 36346:36347 <> a1:179
+binder 36349:36350 <> a2:180
+def 36475:36475 <> W
+R36479:36484 Coq.Strings.String <> string ind
+def 36505:36505 <> X
+R36509:36514 Coq.Strings.String <> string ind
+def 36535:36535 <> Y
+R36539:36544 Coq.Strings.String <> string ind
+def 36565:36565 <> Z
+R36569:36574 Coq.Strings.String <> string ind
+ind 36967:36970 <> bexp
+constr 36986:36990 <> BTrue
+constr 36996:37001 <> BFalse
+constr 37007:37009 <> BEq
+constr 37030:37033 <> BNeq
+constr 37054:37056 <> BLe
+constr 37077:37079 <> BGt
+constr 37100:37103 <> BNot
+constr 37120:37123 <> BAnd
+R37020:37023 MySystem.Imp <> aexp ind
+binder 37012:37013 <> a1:183
+binder 37015:37016 <> a2:184
+R37044:37047 MySystem.Imp <> aexp ind
+binder 37036:37037 <> a1:185
+binder 37039:37040 <> a2:186
+R37067:37070 MySystem.Imp <> aexp ind
+binder 37059:37060 <> a1:187
+binder 37062:37063 <> a2:188
+R37090:37093 MySystem.Imp <> aexp ind
+binder 37082:37083 <> a1:189
+binder 37085:37086 <> a2:190
+R37110:37113 MySystem.Imp <> bexp:181 ind
+binder 37106:37106 <> b:191
+R37134:37137 MySystem.Imp <> bexp:181 ind
+binder 37126:37127 <> b1:192
+binder 37129:37130 <> b2:193
+R38391:38420 MySystem.Imp <> AId constr
+R38423:38450 MySystem.Imp <> ANum constr
+not 38545:38545 <> ::com_scope:'<{'_x_'}>'
+not 38601:38601 <> :com_aux:com_scope:x
+not 38678:38678 <> :com:com_scope:'('_x_')'
+not 38744:38744 <> :com:com_scope:x
+not 38823:38823 <> :com:com_scope:x_x_'..'_x
+R39047:39051 MySystem.Imp <> APlus constr
+not 39033:39033 <> :com::x_'+'_x
+R39130:39135 MySystem.Imp <> AMinus constr
+not 39116:39116 <> :com::x_'-'_x
+R39214:39218 MySystem.Imp <> AMult constr
+not 39200:39200 <> :com::x_'*'_x
+R39296:39299 Coq.Init.Datatypes <> true constr
+not 39283:39283 <> :::'true'
+R39337:39341 MySystem.Imp <> BTrue constr
+not 39324:39324 <> :com::'true'
+R39393:39397 Coq.Init.Datatypes <> false constr
+not 39380:39380 <> :::'false'
+R39435:39440 MySystem.Imp <> BFalse constr
+not 39422:39422 <> :com::'false'
+R39493:39495 MySystem.Imp <> BLe constr
+not 39479:39479 <> :com::x_'<='_x
+R39572:39574 MySystem.Imp <> BGt constr
+not 39558:39558 <> :com::x_'>'_x
+R39651:39653 MySystem.Imp <> BEq constr
+not 39637:39637 <> :com::x_'='_x
+R39730:39733 MySystem.Imp <> BNeq constr
+not 39716:39716 <> :com::x_'<>'_x
+R39810:39813 MySystem.Imp <> BAnd constr
+not 39796:39796 <> :com::x_'&&'_x
+R39892:39895 MySystem.Imp <> BNot constr
+not 39878:39878 <> :com::'~'_x
+def 40128:40139 <> example_aexp
+R40143:40146 MySystem.Imp <> aexp ind
+R40151:40153 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40165:40167 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40155:40157 MySystem.Imp <> :com::x_'+'_x not
+R40158:40158 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R40164:40164 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R40160:40162 MySystem.Imp <> :com::x_'*'_x not
+R40159:40159 MySystem.Imp <> X def
+def 40181:40192 <> example_bexp
+R40196:40199 MySystem.Imp <> bexp ind
+R40204:40206 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40224:40226 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40211:40214 MySystem.Imp <> :com::x_'&&'_x not
+R40207:40210 MySystem.Imp <> :com::'true' not
+R40215:40215 MySystem.Imp <> :com::'~'_x not
+R40216:40216 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R40223:40223 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R40218:40221 MySystem.Imp <> :com::x_'<='_x not
+R40217:40217 MySystem.Imp <> X def
+def 40485:40489 <> aeval
+R40497:40501 MySystem.Imp <> state def
+binder 40492:40493 <> st:194
+R40539:40542 MySystem.Imp <> aexp ind
+binder 40535:40535 <> a:195
+R40547:40549 Coq.Init.Datatypes <> nat ind
+R40562:40562 MySystem.Imp <> a:195 var
+R40573:40576 MySystem.Imp <> ANum constr
+R40589:40591 MySystem.Imp <> AId constr
+R40598:40599 MySystem.Imp <> st:194 var
+R40653:40654 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40662:40663 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40657:40659 MySystem.Imp <> :com::x_'+'_x not
+R40668:40668 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R40680:40684 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R40696:40696 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R40669:40673 MySystem.Imp <> aeval:196 def
+R40675:40676 MySystem.Imp <> st:194 var
+R40685:40689 MySystem.Imp <> aeval:196 def
+R40691:40692 MySystem.Imp <> st:194 var
+R40702:40703 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40711:40712 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40706:40708 MySystem.Imp <> :com::x_'-'_x not
+R40717:40717 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R40729:40733 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R40745:40745 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R40718:40722 MySystem.Imp <> aeval:196 def
+R40724:40725 MySystem.Imp <> st:194 var
+R40734:40738 MySystem.Imp <> aeval:196 def
+R40740:40741 MySystem.Imp <> st:194 var
+R40751:40752 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40760:40761 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40755:40757 MySystem.Imp <> :com::x_'*'_x not
+R40766:40766 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R40778:40782 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R40794:40794 Coq.Init.Nat <> ::nat_scope:x_'*'_x not
+R40767:40771 MySystem.Imp <> aeval:196 def
+R40773:40774 MySystem.Imp <> st:194 var
+R40783:40787 MySystem.Imp <> aeval:196 def
+R40789:40790 MySystem.Imp <> st:194 var
+def 40813:40817 <> beval
+R40825:40829 MySystem.Imp <> state def
+binder 40820:40821 <> st:198
+R40867:40870 MySystem.Imp <> bexp ind
+binder 40863:40863 <> b:199
+R40875:40878 Coq.Init.Datatypes <> bool ind
+R40891:40891 MySystem.Imp <> b:199 var
+R40902:40903 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40908:40909 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40904:40907 MySystem.Imp <> :com::'true' not
+R40919:40922 MySystem.Imp <> :::'true' not
+R40928:40929 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40935:40936 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40930:40934 MySystem.Imp <> :com::'false' not
+R40945:40949 MySystem.Imp <> :::'false' not
+R40955:40956 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40964:40965 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R40959:40961 MySystem.Imp <> :com::x_'='_x not
+R40972:40972 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R40984:40989 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R41001:41001 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R40973:40977 MySystem.Imp <> aeval def
+R40979:40980 MySystem.Imp <> st:198 var
+R40990:40994 MySystem.Imp <> aeval def
+R40996:40997 MySystem.Imp <> st:198 var
+R41007:41008 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41017:41018 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41011:41014 MySystem.Imp <> :com::x_'<>'_x not
+R41024:41027 Coq.Init.Datatypes <> negb def
+R41030:41030 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R41042:41047 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R41059:41059 Coq.Init.Nat <> ::nat_scope:x_'=?'_x not
+R41031:41035 MySystem.Imp <> aeval def
+R41037:41038 MySystem.Imp <> st:198 var
+R41048:41052 MySystem.Imp <> aeval def
+R41054:41055 MySystem.Imp <> st:198 var
+R41066:41067 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41076:41077 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41070:41073 MySystem.Imp <> :com::x_'<='_x not
+R41083:41083 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R41095:41101 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R41113:41113 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R41084:41088 MySystem.Imp <> aeval def
+R41090:41091 MySystem.Imp <> st:198 var
+R41102:41106 MySystem.Imp <> aeval def
+R41108:41109 MySystem.Imp <> st:198 var
+R41119:41120 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41128:41129 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41123:41125 MySystem.Imp <> :com::x_'>'_x not
+R41136:41139 Coq.Init.Datatypes <> negb def
+R41142:41142 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R41154:41160 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R41172:41172 Coq.Init.Nat <> ::nat_scope:x_'<=?'_x not
+R41143:41147 MySystem.Imp <> aeval def
+R41149:41150 MySystem.Imp <> st:198 var
+R41161:41165 MySystem.Imp <> aeval def
+R41167:41168 MySystem.Imp <> st:198 var
+R41179:41180 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41185:41186 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41181:41182 MySystem.Imp <> :com::'~'_x not
+R41196:41199 Coq.Init.Datatypes <> negb def
+R41202:41206 MySystem.Imp <> beval:200 def
+R41208:41209 MySystem.Imp <> st:198 var
+R41219:41220 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41229:41230 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41223:41226 MySystem.Imp <> :com::x_'&&'_x not
+R41236:41239 Coq.Init.Datatypes <> andb def
+R41256:41260 MySystem.Imp <> beval:200 def
+R41262:41263 MySystem.Imp <> st:198 var
+R41242:41246 MySystem.Imp <> beval:200 def
+R41248:41249 MySystem.Imp <> st:198 var
+def 41420:41427 <> empty_st
+R41433:41438 MySystem.Maps <> :::'''_'''_'!->'_x not
+R41574:41578 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R41580:41582 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R41583:41590 MySystem.Imp <> empty_st def
+not 41557:41557 <> :::x_'!->'_x
+def 41618:41622 <> aexp1
+R41663:41667 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R41630:41634 MySystem.Imp <> aeval def
+R41638:41642 MySystem.Imp <> :::x_'!->'_x not
+R41637:41637 MySystem.Imp <> X def
+R41646:41648 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41660:41662 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41650:41652 MySystem.Imp <> :com::x_'+'_x not
+R41653:41653 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R41659:41659 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R41655:41657 MySystem.Imp <> :com::x_'*'_x not
+R41654:41654 MySystem.Imp <> X def
+def 41706:41710 <> aexp2
+R41761:41765 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R41718:41722 MySystem.Imp <> aeval def
+R41726:41730 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R41732:41734 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R41736:41740 MySystem.Imp <> :::x_'!->'_x not
+R41735:41735 MySystem.Imp <> Y def
+R41725:41725 MySystem.Imp <> X def
+R41744:41746 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41758:41760 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41748:41750 MySystem.Imp <> :com::x_'+'_x not
+R41747:41747 MySystem.Imp <> Z def
+R41751:41751 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R41757:41757 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R41753:41755 MySystem.Imp <> :com::x_'*'_x not
+R41752:41752 MySystem.Imp <> X def
+R41756:41756 MySystem.Imp <> Y def
+def 41804:41808 <> bexp1
+R41855:41859 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R41816:41820 MySystem.Imp <> beval def
+R41824:41828 MySystem.Imp <> :::x_'!->'_x not
+R41823:41823 MySystem.Imp <> X def
+R41832:41834 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41852:41854 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R41839:41842 MySystem.Imp <> :com::x_'&&'_x not
+R41835:41838 MySystem.Imp <> :com::'true' not
+R41843:41843 MySystem.Imp <> :com::'~'_x not
+R41844:41844 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R41851:41851 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R41846:41849 MySystem.Imp <> :com::x_'<='_x not
+R41845:41845 MySystem.Imp <> X def
+R41860:41863 MySystem.Imp <> :::'true' not
+ind 42451:42453 <> com
+constr 42469:42473 <> CSkip
+constr 42479:42483 <> CAsgn
+constr 42513:42516 <> CSeq
+constr 42536:42538 <> CIf
+constr 42569:42574 <> CWhile
+R42490:42495 Coq.Strings.String <> string ind
+binder 42486:42486 <> x:204
+R42503:42506 MySystem.Imp <> aexp ind
+binder 42499:42499 <> a:205
+R42527:42529 MySystem.Imp <> com:202 ind
+binder 42519:42520 <> c1:206
+binder 42522:42523 <> c2:207
+R42545:42548 MySystem.Imp <> bexp ind
+binder 42541:42541 <> b:208
+R42560:42562 MySystem.Imp <> com:202 ind
+binder 42552:42553 <> c1:209
+binder 42555:42556 <> c2:210
+R42581:42584 MySystem.Imp <> bexp ind
+binder 42577:42577 <> b:211
+R42592:42594 MySystem.Imp <> com:202 ind
+binder 42588:42588 <> c:212
+R42772:42776 MySystem.Imp <> CSkip constr
+not 42750:42750 <> :com:com_scope:'skip'
+R42850:42854 MySystem.Imp <> CAsgn constr
+not 42827:42827 <> :com:com_scope:x_':='_x
+R43010:43013 MySystem.Imp <> CSeq constr
+not 42989:42989 <> :com:com_scope:x_';'_x
+R43160:43162 MySystem.Imp <> CIf constr
+not 43114:43114 <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end'
+R43327:43332 MySystem.Imp <> CWhile constr
+not 43289:43289 <> :com:com_scope:'while'_x_'do'_x_'end'
+def 43652:43662 <> fact_in_coq
+R43666:43668 MySystem.Imp <> com ind
+R43675:43677 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R43765:43767 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R43684:43690 MySystem.Imp <> :com:com_scope:x_';'_x not
+R43679:43682 MySystem.Imp <> :com:com_scope:x_':='_x not
+R43678:43678 MySystem.Imp <> Z def
+R43683:43683 MySystem.Imp <> X def
+R43697:43703 MySystem.Imp <> :com:com_scope:x_';'_x not
+R43692:43695 MySystem.Imp <> :com:com_scope:x_':='_x not
+R43691:43691 MySystem.Imp <> Y def
+R43704:43709 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R43716:43726 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R43756:43764 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R43711:43714 MySystem.Imp <> :com::x_'<>'_x not
+R43710:43710 MySystem.Imp <> Z def
+R43737:43745 MySystem.Imp <> :com:com_scope:x_';'_x not
+R43728:43731 MySystem.Imp <> :com:com_scope:x_':='_x not
+R43727:43727 MySystem.Imp <> Y def
+R43733:43735 MySystem.Imp <> :com::x_'*'_x not
+R43732:43732 MySystem.Imp <> Y def
+R43736:43736 MySystem.Imp <> Z def
+R43747:43750 MySystem.Imp <> :com:com_scope:x_':='_x not
+R43746:43746 MySystem.Imp <> Z def
+R43752:43754 MySystem.Imp <> :com::x_'-'_x not
+R43751:43751 MySystem.Imp <> Z def
+R43777:43787 MySystem.Imp <> fact_in_coq def
+R44649:44659 MySystem.Imp <> fact_in_coq def
+R44932:44943 MySystem.Imp <> example_bexp def
+R45028:45039 MySystem.Imp <> example_bexp def
+R45109:45119 MySystem.Imp <> fact_in_coq def
+def 47216:47220 <> plus2
+R47224:47226 MySystem.Imp <> com ind
+R47233:47235 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47246:47248 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47237:47240 MySystem.Imp <> :com:com_scope:x_':='_x not
+R47236:47236 MySystem.Imp <> X def
+R47242:47244 MySystem.Imp <> :com::x_'+'_x not
+R47241:47241 MySystem.Imp <> X def
+def 47263:47272 <> XtimesYinZ
+R47276:47278 MySystem.Imp <> com ind
+R47285:47287 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47298:47300 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47289:47292 MySystem.Imp <> :com:com_scope:x_':='_x not
+R47288:47288 MySystem.Imp <> Z def
+R47294:47296 MySystem.Imp <> :com::x_'*'_x not
+R47293:47293 MySystem.Imp <> X def
+R47297:47297 MySystem.Imp <> Y def
+def 47405:47424 <> subtract_slowly_body
+R47428:47430 MySystem.Imp <> com ind
+R47437:47439 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47468:47470 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47450:47457 MySystem.Imp <> :com:com_scope:x_';'_x not
+R47441:47444 MySystem.Imp <> :com:com_scope:x_':='_x not
+R47440:47440 MySystem.Imp <> Z def
+R47446:47448 MySystem.Imp <> :com::x_'-'_x not
+R47445:47445 MySystem.Imp <> Z def
+R47459:47462 MySystem.Imp <> :com:com_scope:x_':='_x not
+R47458:47458 MySystem.Imp <> X def
+R47464:47466 MySystem.Imp <> :com::x_'-'_x not
+R47463:47463 MySystem.Imp <> X def
+def 47485:47499 <> subtract_slowly
+R47503:47505 MySystem.Imp <> com ind
+R47512:47514 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47567:47569 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47515:47520 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R47527:47537 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R47558:47566 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R47522:47525 MySystem.Imp <> :com::x_'<>'_x not
+R47521:47521 MySystem.Imp <> X def
+R47538:47557 MySystem.Imp <> subtract_slowly_body def
+def 47584:47607 <> subtract_3_from_5_slowly
+R47611:47613 MySystem.Imp <> com ind
+R47620:47622 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47666:47668 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47629:47636 MySystem.Imp <> :com:com_scope:x_';'_x not
+R47624:47627 MySystem.Imp <> :com:com_scope:x_':='_x not
+R47623:47623 MySystem.Imp <> X def
+R47643:47650 MySystem.Imp <> :com:com_scope:x_';'_x not
+R47638:47641 MySystem.Imp <> :com:com_scope:x_':='_x not
+R47637:47637 MySystem.Imp <> Z def
+R47651:47665 MySystem.Imp <> subtract_slowly def
+def 47785:47788 <> loop
+R47792:47794 MySystem.Imp <> com ind
+R47801:47803 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47838:47840 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R47804:47809 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R47814:47824 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R47829:47837 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R47810:47813 MySystem.Imp <> :com::'true' not
+R47825:47828 MySystem.Imp <> :com:com_scope:'skip' not
+def 48372:48389 <> ceval_fun_no_while
+R48397:48401 MySystem.Imp <> state def
+binder 48392:48393 <> st:213
+R48409:48411 MySystem.Imp <> com ind
+binder 48405:48405 <> c:214
+R48416:48420 MySystem.Imp <> state def
+R48433:48433 MySystem.Imp <> c:214 var
+R48446:48448 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48453:48455 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48449:48452 MySystem.Imp <> :com:com_scope:'skip' not
+R48468:48469 MySystem.Imp <> st:213 var
+R48477:48479 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48486:48488 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48481:48484 MySystem.Imp <> :com:com_scope:x_':='_x not
+R48503:48508 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R48519:48522 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R48523:48524 MySystem.Imp <> st:213 var
+R48509:48513 MySystem.Imp <> aeval def
+R48515:48516 MySystem.Imp <> st:213 var
+R48533:48535 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48543:48545 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48538:48540 MySystem.Imp <> :com:com_scope:x_';'_x not
+R48569:48586 MySystem.Imp <> ceval_fun_no_while:215 def
+R48588:48589 MySystem.Imp <> st:213 var
+binder 48562:48564 <> st':217
+R48605:48622 MySystem.Imp <> ceval_fun_no_while:215 def
+R48624:48626 MySystem.Imp <> st':217 var
+R48637:48639 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48664:48665 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48640:48642 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R48644:48649 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R48652:48657 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R48660:48663 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R48682:48686 MySystem.Imp <> beval def
+R48688:48689 MySystem.Imp <> st:213 var
+R48749:48766 MySystem.Imp <> ceval_fun_no_while:215 def
+R48768:48769 MySystem.Imp <> st:213 var
+R48709:48726 MySystem.Imp <> ceval_fun_no_while:215 def
+R48728:48729 MySystem.Imp <> st:213 var
+R48780:48782 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48799:48801 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R48783:48788 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R48790:48793 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R48795:48798 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R48814:48815 MySystem.Imp <> st:213 var
+ind 53130:53134 <> ceval
+constr 53175:53180 <> E_Skip
+constr 53223:53228 <> E_Asgn
+constr 53316:53320 <> E_Seq
+constr 53440:53447 <> E_IfTrue
+constr 53575:53583 <> E_IfFalse
+constr 53712:53723 <> E_WhileFalse
+constr 53810:53820 <> E_WhileTrue
+R53141:53144 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53138:53140 MySystem.Imp <> com ind
+R53150:53153 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53145:53149 MySystem.Imp <> state def
+R53159:53162 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53154:53158 MySystem.Imp <> state def
+R54013:54017 MySystem.Imp <> ceval:219 ind
+binder 53191:53192 <> st:220
+R53203:53206 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53211:53215 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53207:53210 MySystem.Imp <> :com:com_scope:'skip' not
+R53201:53202 MySystem.Imp <> st:220 var
+R53216:53217 MySystem.Imp <> st:220 var
+binder 53240:53241 <> st:221
+binder 53243:53243 <> a:222
+binder 53245:53245 <> n:223
+binder 53247:53247 <> x:224
+R53270:53279 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53266:53268 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53256:53260 MySystem.Imp <> aeval def
+R53262:53263 MySystem.Imp <> st:221 var
+R53265:53265 MySystem.Imp <> a:222 var
+R53269:53269 MySystem.Imp <> n:223 var
+R53282:53285 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53292:53297 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53310:53310 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53287:53290 MySystem.Imp <> :com:com_scope:x_':='_x not
+R53286:53286 MySystem.Imp <> x:224 var
+R53291:53291 MySystem.Imp <> a:222 var
+R53280:53281 MySystem.Imp <> st:221 var
+R53299:53303 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R53305:53307 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R53308:53309 MySystem.Imp <> st:221 var
+R53298:53298 MySystem.Imp <> x:224 var
+R53304:53304 MySystem.Imp <> n:223 var
+binder 53331:53332 <> c1:225
+binder 53334:53335 <> c2:226
+binder 53337:53338 <> st:227
+binder 53340:53342 <> st':228
+binder 53344:53347 <> st'':229
+R53373:53383 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53358:53362 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53365:53369 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53363:53364 MySystem.Imp <> c1:225 var
+R53356:53357 MySystem.Imp <> st:227 var
+R53370:53372 MySystem.Imp <> st':228 var
+R53402:53411 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53387:53390 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53393:53397 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53391:53392 MySystem.Imp <> c2:226 var
+R53384:53386 MySystem.Imp <> st':228 var
+R53398:53401 MySystem.Imp <> st'':229 var
+R53414:53418 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53426:53430 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53421:53423 MySystem.Imp <> :com:com_scope:x_';'_x not
+R53419:53420 MySystem.Imp <> c1:225 var
+R53424:53425 MySystem.Imp <> c2:226 var
+R53412:53413 MySystem.Imp <> st:227 var
+R53431:53434 MySystem.Imp <> st'':229 var
+binder 53458:53459 <> st:230
+binder 53461:53463 <> st':231
+binder 53465:53465 <> b:232
+binder 53467:53468 <> c1:233
+binder 53470:53471 <> c2:234
+R53497:53506 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53490:53492 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53480:53484 MySystem.Imp <> beval def
+R53486:53487 MySystem.Imp <> st:230 var
+R53489:53489 MySystem.Imp <> b:232 var
+R53493:53496 MySystem.Imp <> :::'true' not
+R53523:53532 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53509:53512 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53515:53519 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53513:53514 MySystem.Imp <> c1:233 var
+R53507:53508 MySystem.Imp <> st:230 var
+R53520:53522 MySystem.Imp <> st':231 var
+R53535:53538 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53563:53566 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53539:53541 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R53543:53548 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R53551:53556 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R53559:53562 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R53542:53542 MySystem.Imp <> b:232 var
+R53549:53550 MySystem.Imp <> c1:233 var
+R53557:53558 MySystem.Imp <> c2:234 var
+R53533:53534 MySystem.Imp <> st:230 var
+R53567:53569 MySystem.Imp <> st':231 var
+binder 53594:53595 <> st:235
+binder 53597:53599 <> st':236
+binder 53601:53601 <> b:237
+binder 53603:53604 <> c1:238
+binder 53606:53607 <> c2:239
+R53634:53643 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53626:53628 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53616:53620 MySystem.Imp <> beval def
+R53622:53623 MySystem.Imp <> st:235 var
+R53625:53625 MySystem.Imp <> b:237 var
+R53629:53633 MySystem.Imp <> :::'false' not
+R53660:53669 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53646:53649 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53652:53656 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53650:53651 MySystem.Imp <> c2:239 var
+R53644:53645 MySystem.Imp <> st:235 var
+R53657:53659 MySystem.Imp <> st':236 var
+R53672:53675 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53700:53703 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53676:53678 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R53680:53685 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R53688:53693 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R53696:53699 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R53679:53679 MySystem.Imp <> b:237 var
+R53686:53687 MySystem.Imp <> c1:238 var
+R53694:53695 MySystem.Imp <> c2:239 var
+R53670:53671 MySystem.Imp <> st:235 var
+R53704:53706 MySystem.Imp <> st':236 var
+binder 53734:53734 <> b:240
+binder 53736:53737 <> st:241
+binder 53739:53739 <> c:242
+R53766:53775 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53758:53760 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53748:53752 MySystem.Imp <> beval def
+R53754:53755 MySystem.Imp <> st:241 var
+R53757:53757 MySystem.Imp <> b:240 var
+R53761:53765 MySystem.Imp <> :::'false' not
+R53778:53781 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53798:53802 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53782:53787 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53789:53792 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53794:53797 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53788:53788 MySystem.Imp <> b:240 var
+R53793:53793 MySystem.Imp <> c:242 var
+R53776:53777 MySystem.Imp <> st:241 var
+R53803:53804 MySystem.Imp <> st:241 var
+binder 53831:53832 <> st:243
+binder 53834:53836 <> st':244
+binder 53838:53841 <> st'':245
+binder 53843:53843 <> b:246
+binder 53845:53845 <> c:247
+R53871:53880 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53864:53866 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53854:53858 MySystem.Imp <> beval def
+R53860:53861 MySystem.Imp <> st:243 var
+R53863:53863 MySystem.Imp <> b:246 var
+R53867:53870 MySystem.Imp <> :::'true' not
+R53897:53906 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53883:53887 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53889:53893 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53888:53888 MySystem.Imp <> c:247 var
+R53881:53882 MySystem.Imp <> st:243 var
+R53894:53896 MySystem.Imp <> st':244 var
+R53939:53948 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53910:53913 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53930:53934 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53914:53919 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53921:53924 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53926:53929 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53920:53920 MySystem.Imp <> b:246 var
+R53925:53925 MySystem.Imp <> c:247 var
+R53907:53909 MySystem.Imp <> st':244 var
+R53935:53938 MySystem.Imp <> st'':245 var
+R53951:53955 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53972:53976 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R53956:53961 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53963:53966 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53968:53971 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R53962:53962 MySystem.Imp <> b:246 var
+R53967:53967 MySystem.Imp <> c:247 var
+R53949:53950 MySystem.Imp <> st:243 var
+R53977:53980 MySystem.Imp <> st'':245 var
+R54013:54017 MySystem.Imp <> ceval ind
+not 53991:53991 <> :::x_'=['_x_']=>'_x
+def 54287:54300 <> ceval_example1
+R54313:54321 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R54393:54400 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R54418:54418 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R54328:54334 MySystem.Imp <> :com:com_scope:x_';'_x not
+R54323:54326 MySystem.Imp <> :com:com_scope:x_':='_x not
+R54322:54322 MySystem.Imp <> X def
+R54335:54337 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R54346:54358 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R54365:54377 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R54384:54392 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R54338:54338 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R54345:54345 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R54340:54343 MySystem.Imp <> :com::x_'<='_x not
+R54339:54339 MySystem.Imp <> X def
+R54360:54363 MySystem.Imp <> :com:com_scope:x_':='_x not
+R54359:54359 MySystem.Imp <> Y def
+R54379:54382 MySystem.Imp <> :com:com_scope:x_':='_x not
+R54378:54378 MySystem.Imp <> Z def
+R54305:54312 MySystem.Imp <> empty_st def
+R54402:54406 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R54408:54410 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R54412:54416 MySystem.Imp <> :::x_'!->'_x not
+R54411:54411 MySystem.Imp <> X def
+R54401:54401 MySystem.Imp <> Z def
+R54495:54499 MySystem.Imp <> :::x_'!->'_x not
+R54494:54494 MySystem.Imp <> X def
+R54482:54486 MySystem.Imp <> E_Seq constr
+R54495:54499 MySystem.Imp <> :::x_'!->'_x not
+R54494:54494 MySystem.Imp <> X def
+R54482:54486 MySystem.Imp <> E_Seq constr
+R54543:54548 MySystem.Imp <> E_Asgn constr
+R54543:54548 MySystem.Imp <> E_Asgn constr
+R54595:54603 MySystem.Imp <> E_IfFalse constr
+R54595:54603 MySystem.Imp <> E_IfFalse constr
+R54637:54642 MySystem.Imp <> E_Asgn constr
+R54637:54642 MySystem.Imp <> E_Asgn constr
+def 54729:54742 <> ceval_example2
+R54755:54762 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R54793:54800 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R54828:54828 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R54769:54774 MySystem.Imp <> :com:com_scope:x_';'_x not
+R54764:54767 MySystem.Imp <> :com:com_scope:x_':='_x not
+R54763:54763 MySystem.Imp <> X def
+R54781:54786 MySystem.Imp <> :com:com_scope:x_';'_x not
+R54776:54779 MySystem.Imp <> :com:com_scope:x_':='_x not
+R54775:54775 MySystem.Imp <> Y def
+R54788:54791 MySystem.Imp <> :com:com_scope:x_':='_x not
+R54787:54787 MySystem.Imp <> Z def
+R54747:54754 MySystem.Imp <> empty_st def
+R54802:54806 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R54808:54810 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R54812:54816 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R54818:54820 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R54822:54826 MySystem.Imp <> :::x_'!->'_x not
+R54821:54821 MySystem.Imp <> X def
+R54811:54811 MySystem.Imp <> Y def
+R54801:54801 MySystem.Imp <> Z def
+R54910:54923 MySystem.Imp <> ceval_example2 prfax
+def 55334:55341 <> pup_to_n
+R55345:55347 MySystem.Imp <> com ind
+prf 55425:55438 <> pup_to_2_ceval
+R55444:55444 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R55452:55460 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R55469:55476 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R55534:55534 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R55461:55468 MySystem.Imp <> pup_to_n prfax
+R55446:55450 MySystem.Imp <> :::x_'!->'_x not
+R55445:55445 MySystem.Imp <> X def
+R55478:55482 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55484:55486 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55488:55492 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55494:55496 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55498:55502 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55504:55506 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55508:55512 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55514:55516 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55518:55522 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55524:55526 MySystem.Maps <> :::x_'!->'_x_';'_x not
+R55528:55532 MySystem.Imp <> :::x_'!->'_x not
+R55527:55527 MySystem.Imp <> X def
+R55517:55517 MySystem.Imp <> Y def
+R55507:55507 MySystem.Imp <> Y def
+R55497:55497 MySystem.Imp <> X def
+R55487:55487 MySystem.Imp <> Y def
+R55477:55477 MySystem.Imp <> X def
+prf 56257:56275 <> ceval_deterministic
+binder 56285:56285 <> c:248
+binder 56287:56288 <> st:249
+binder 56290:56292 <> st1:250
+binder 56294:56296 <> st2:251
+R56319:56328 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R56306:56309 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R56311:56315 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R56310:56310 MySystem.Imp <> c:248 var
+R56304:56305 MySystem.Imp <> st:249 var
+R56316:56318 MySystem.Imp <> st1:250 var
+R56344:56352 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R56331:56334 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R56336:56340 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R56335:56335 MySystem.Imp <> c:248 var
+R56329:56330 MySystem.Imp <> st:249 var
+R56341:56343 MySystem.Imp <> st2:251 var
+R56356:56358 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R56353:56355 MySystem.Imp <> st1:250 var
+R56359:56361 MySystem.Imp <> st2:251 var
+prf 57741:57750 <> plus2_spec
+binder 57761:57762 <> st:252
+binder 57764:57764 <> n:253
+binder 57766:57768 <> st':254
+R57781:57786 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R57777:57779 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R57773:57774 MySystem.Imp <> st:252 var
+R57776:57776 MySystem.Imp <> X def
+R57780:57780 MySystem.Imp <> n:253 var
+R57806:57811 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R57789:57792 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R57798:57802 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R57793:57797 MySystem.Imp <> plus2 def
+R57787:57788 MySystem.Imp <> st:252 var
+R57803:57805 MySystem.Imp <> st':254 var
+R57817:57819 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R57812:57814 MySystem.Imp <> st':254 var
+R57816:57816 MySystem.Imp <> X def
+R57821:57823 Coq.Init.Nat <> ::nat_scope:x_'+'_x not
+R57820:57820 MySystem.Imp <> n:253 var
+R58150:58160 MySystem.Maps <> t_update_eq prfax
+R58150:58160 MySystem.Maps <> t_update_eq prfax
+def 58364:58395 <> manual_grade_for_XtimesYinZ_spec
+R58399:58404 Coq.Init.Datatypes <> option ind
+R58410:58410 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R58407:58409 Coq.Init.Datatypes <> nat ind
+R58411:58416 Coq.Strings.String <> string ind
+R58422:58425 Coq.Init.Datatypes <> None constr
+prf 58525:58540 <> loop_never_stops
+binder 58551:58552 <> st:255
+binder 58554:58556 <> st':256
+R58561:58562 Coq.Init.Logic <> ::type_scope:'~'_x not
+R58581:58581 Coq.Init.Logic <> ::type_scope:'~'_x not
+R58565:58568 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R58573:58577 MySystem.Imp <> :::x_'=['_x_']=>'_x not
+R58569:58572 MySystem.Imp <> loop def
+R58563:58564 MySystem.Imp <> st:255 var
+R58578:58580 MySystem.Imp <> st':256 var
+R58622:58625 MySystem.Imp <> loop def
+R58649:58651 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R58674:58676 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R58652:58657 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R58662:58665 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R58670:58673 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R58658:58661 MySystem.Imp <> :com::'true' not
+R58666:58669 MySystem.Imp <> :com:com_scope:'skip' not
+R58649:58651 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R58674:58676 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R58652:58657 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R58662:58665 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R58670:58673 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R58658:58661 MySystem.Imp <> :com::'true' not
+R58666:58669 MySystem.Imp <> :com:com_scope:'skip' not
+def 59076:59084 <> no_whiles
+R59091:59093 MySystem.Imp <> com ind
+binder 59087:59087 <> c:257
+R59098:59101 Coq.Init.Datatypes <> bool ind
+R59114:59114 MySystem.Imp <> c:257 var
+R59125:59127 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59132:59134 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59128:59131 MySystem.Imp <> :com:com_scope:'skip' not
+R59145:59148 MySystem.Imp <> :::'true' not
+R59154:59156 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59163:59165 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59158:59161 MySystem.Imp <> :com:com_scope:x_':='_x not
+R59176:59179 MySystem.Imp <> :::'true' not
+R59185:59187 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59195:59197 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59190:59192 MySystem.Imp <> :com:com_scope:x_';'_x not
+R59208:59211 Coq.Init.Datatypes <> andb def
+R59229:59237 MySystem.Imp <> no_whiles:258 def
+R59214:59222 MySystem.Imp <> no_whiles:258 def
+R59247:59249 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59274:59276 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59250:59252 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R59254:59259 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R59262:59267 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R59270:59273 MySystem.Imp <> :com:com_scope:'if'_x_'then'_x_'else'_x_'end' not
+R59287:59290 Coq.Init.Datatypes <> andb def
+R59308:59316 MySystem.Imp <> no_whiles:258 def
+R59293:59301 MySystem.Imp <> no_whiles:258 def
+R59326:59328 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59345:59347 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R59329:59334 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R59336:59339 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R59341:59344 MySystem.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
+R59359:59363 MySystem.Imp <> :::'false' not
+ind 59659:59668 <> no_whilesR
+R59674:59677 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R59671:59673 MySystem.Imp <> com ind
+prf 59717:59729 <> no_whiles_eqv
+binder 59741:59741 <> c:262
+R59762:59766 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R59755:59757 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R59744:59752 MySystem.Imp <> no_whiles def
+R59754:59754 MySystem.Imp <> c:262 var
+R59758:59761 MySystem.Imp <> :::'true' not
+R59767:59776 MySystem.Imp <> no_whilesR ind
+R59778:59778 MySystem.Imp <> c:262 var
+def 60163:60200 <> manual_grade_for_no_whiles_terminating
+R60204:60209 Coq.Init.Datatypes <> option ind
+R60215:60215 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R60212:60214 Coq.Init.Datatypes <> nat ind
+R60216:60221 Coq.Strings.String <> string ind
+R60227:60230 Coq.Init.Datatypes <> None constr
+ind 61770:61775 <> sinstr
+constr 61789:61793 <> SPush
+constr 61807:61811 <> SLoad
+constr 61828:61832 <> SPlus
+constr 61836:61841 <> SMinus
+constr 61845:61849 <> SMult
+R61800:61802 Coq.Init.Datatypes <> nat ind
+binder 61796:61796 <> n:265
+R61818:61823 Coq.Strings.String <> string ind
+binder 61814:61814 <> x:266
+def 62623:62631 <> s_execute
+R62639:62643 MySystem.Imp <> state def
+binder 62634:62635 <> st:267
+R62655:62658 Coq.Init.Datatypes <> list ind
+R62660:62662 Coq.Init.Datatypes <> nat ind
+binder 62647:62651 <> stack:268
+R62692:62695 Coq.Init.Datatypes <> list ind
+R62697:62702 MySystem.Imp <> sinstr ind
+binder 62685:62688 <> prog:269
+R62724:62727 Coq.Init.Datatypes <> list ind
+R62729:62731 Coq.Init.Datatypes <> nat ind
+R62807:62815 MySystem.Imp <> s_execute prfax
+def 62827:62836 <> s_execute1
+R62909:62914 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R62845:62853 MySystem.Imp <> s_execute prfax
+R62855:62862 MySystem.Imp <> empty_st def
+R62864:62865 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R62874:62874 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R62882:62883 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R62891:62892 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R62900:62901 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R62908:62908 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R62875:62879 MySystem.Imp <> SPush constr
+R62884:62888 MySystem.Imp <> SPush constr
+R62893:62897 MySystem.Imp <> SPush constr
+R62902:62907 MySystem.Imp <> SMinus constr
+R62915:62915 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R62917:62918 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R62920:62920 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 62961:62970 <> s_execute2
+R63044:63049 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R62979:62987 MySystem.Imp <> s_execute prfax
+R62991:62995 MySystem.Imp <> :::x_'!->'_x not
+R62990:62990 MySystem.Imp <> X def
+R62999:62999 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63001:63001 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63003:63003 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63012:63012 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63020:63021 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63029:63030 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63036:63037 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63043:63043 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63013:63017 MySystem.Imp <> SPush constr
+R63022:63026 MySystem.Imp <> SLoad constr
+R63028:63028 MySystem.Imp <> X def
+R63031:63035 MySystem.Imp <> SMult constr
+R63038:63042 MySystem.Imp <> SPlus constr
+R63050:63050 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63053:63054 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63056:63056 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 63297:63305 <> s_compile
+R63312:63315 MySystem.Imp <> aexp ind
+binder 63308:63308 <> e:271
+R63320:63323 Coq.Init.Datatypes <> list ind
+R63325:63330 MySystem.Imp <> sinstr ind
+def 63497:63506 <> s_compile1
+R63539:63543 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R63512:63520 MySystem.Imp <> s_compile prfax
+R63522:63524 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R63536:63538 MySystem.Imp <> ::com_scope:'<{'_x_'}>' not
+R63526:63528 MySystem.Imp <> :com::x_'-'_x not
+R63525:63525 MySystem.Imp <> X def
+R63529:63529 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R63535:63535 MySystem.Imp <> :com:com_scope:'('_x_')' not
+R63531:63533 MySystem.Imp <> :com::x_'*'_x not
+R63534:63534 MySystem.Imp <> Y def
+R63544:63544 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63552:63553 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63561:63562 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63570:63571 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63577:63578 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63585:63585 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R63545:63549 MySystem.Imp <> SLoad constr
+R63551:63551 MySystem.Imp <> X def
+R63554:63558 MySystem.Imp <> SPush constr
+R63563:63567 MySystem.Imp <> SLoad constr
+R63569:63569 MySystem.Imp <> Y def
+R63572:63576 MySystem.Imp <> SMult constr
+R63579:63584 MySystem.Imp <> SMinus constr
+prf 63910:63920 <> execute_app
+binder 63931:63932 <> st:273
+binder 63934:63935 <> p1:274
+binder 63937:63938 <> p2:275
+binder 63940:63944 <> stack:276
+R63978:63980 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R63949:63957 MySystem.Imp <> s_execute prfax
+R63959:63960 MySystem.Imp <> st:273 var
+R63962:63966 MySystem.Imp <> stack:276 var
+R63971:63974 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R63969:63970 MySystem.Imp <> p1:274 var
+R63975:63976 MySystem.Imp <> p2:275 var
+R63981:63989 MySystem.Imp <> s_execute prfax
+R63991:63992 MySystem.Imp <> st:273 var
+R63995:64003 MySystem.Imp <> s_execute prfax
+R64005:64006 MySystem.Imp <> st:273 var
+R64008:64012 MySystem.Imp <> stack:276 var
+R64014:64015 MySystem.Imp <> p1:274 var
+R64018:64019 MySystem.Imp <> p2:275 var
+prf 64402:64422 <> s_compile_correct_aux
+binder 64433:64434 <> st:277
+binder 64436:64436 <> e:278
+binder 64438:64442 <> stack:279
+R64479:64481 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R64447:64455 MySystem.Imp <> s_execute prfax
+R64457:64458 MySystem.Imp <> st:277 var
+R64460:64464 MySystem.Imp <> stack:279 var
+R64467:64475 MySystem.Imp <> s_compile prfax
+R64477:64477 MySystem.Imp <> e:278 var
+R64492:64495 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R64482:64486 MySystem.Imp <> aeval def
+R64488:64489 MySystem.Imp <> st:277 var
+R64491:64491 MySystem.Imp <> e:278 var
+R64496:64500 MySystem.Imp <> stack:279 var
+prf 64622:64638 <> s_compile_correct
+R64655:64659 MySystem.Imp <> state def
+binder 64650:64651 <> st:280
+R64667:64670 MySystem.Imp <> aexp ind
+binder 64663:64663 <> e:281
+R64705:64707 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R64676:64684 MySystem.Imp <> s_execute prfax
+R64686:64687 MySystem.Imp <> st:280 var
+R64689:64690 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R64693:64701 MySystem.Imp <> s_compile prfax
+R64703:64703 MySystem.Imp <> e:281 var
+R64708:64709 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R64720:64721 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R64710:64714 MySystem.Imp <> aeval def
+R64716:64717 MySystem.Imp <> st:280 var
+R64719:64719 MySystem.Imp <> e:281 var
+mod 65682:65689 <> BreakImp
+ind 66027:66029 BreakImp com
+constr 66045:66049 BreakImp CSkip
+constr 66055:66060 BreakImp CBreak
+constr 66104:66108 BreakImp CAsgn
+constr 66138:66141 BreakImp CSeq
+constr 66161:66163 BreakImp CIf
+constr 66194:66199 BreakImp CWhile
+R66115:66120 Coq.Strings.String <> string ind
+binder 66111:66111 <> x:284
+R66128:66131 MySystem.Imp <> aexp ind
+binder 66124:66124 <> a:285
+R66152:66154 MySystem.Imp <> com:282 ind
+binder 66144:66145 <> c1:286
+binder 66147:66148 <> c2:287
+R66170:66173 MySystem.Imp <> bexp ind
+binder 66166:66166 <> b:288
+R66185:66187 MySystem.Imp <> com:282 ind
+binder 66177:66178 <> c1:289
+binder 66180:66181 <> c2:290
+R66206:66209 MySystem.Imp <> bexp ind
+binder 66202:66202 <> b:291
+R66217:66219 MySystem.Imp <> com:282 ind
+binder 66213:66213 <> c:292
+R66246:66251 MySystem.Imp BreakImp CBreak constr
+not 66233:66233 BreakImp :com::'break'
+R66312:66316 MySystem.Imp BreakImp CSkip constr
+not 66290:66290 BreakImp :com:com_scope:'skip'
+R66390:66394 MySystem.Imp BreakImp CAsgn constr
+not 66367:66367 BreakImp :com:com_scope:x_':='_x
+R66550:66553 MySystem.Imp BreakImp CSeq constr
+not 66529:66529 BreakImp :com:com_scope:x_';'_x
+R66688:66690 MySystem.Imp BreakImp CIf constr
+not 66642:66642 BreakImp :com:com_scope:'if'_x_'then'_x_'else'_x_'end'
+R66855:66860 MySystem.Imp BreakImp CWhile constr
+not 66817:66817 BreakImp :com:com_scope:'while'_x_'do'_x_'end'
+ind 67995:68000 BreakImp result
+constr 68016:68024 BreakImp SContinue
+constr 68030:68035 BreakImp SBreak
+ind 70450:70454 BreakImp ceval
+constr 70505:70510 BreakImp E_Skip
+R70461:70464 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R70458:70460 MySystem.Imp BreakImp com ind
+R70470:70473 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R70465:70469 MySystem.Imp <> state def
+R70480:70483 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R70474:70479 MySystem.Imp BreakImp result ind
+R70489:70492 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R70484:70488 MySystem.Imp <> state def
+R70624:70628 MySystem.Imp <> ceval:296 ind
+binder 70521:70522 <> st:297
+R70533:70536 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70542:70546 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70549:70551 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70537:70541 MySystem.Imp BreakImp CSkip constr
+R70531:70532 MySystem.Imp <> st:297 var
+R70552:70560 MySystem.Imp BreakImp SContinue constr
+R70547:70548 MySystem.Imp <> st:297 var
+R70624:70628 MySystem.Imp BreakImp ceval ind
+not 70592:70592 BreakImp :::x_'=['_x_']=>'_x_'/'_x
+prf 70726:70737 BreakImp break_ignore
+binder 70748:70748 <> c:298
+binder 70750:70751 <> st:299
+binder 70753:70755 <> st':300
+binder 70757:70757 <> s:301
+R70791:70799 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R70767:70770 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70779:70783 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70787:70789 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70776:70777 MySystem.Imp BreakImp :com:com_scope:x_';'_x not
+R70771:70775 MySystem.Imp BreakImp :com::'break' not
+R70778:70778 MySystem.Imp <> c:298 var
+R70765:70766 MySystem.Imp <> st:299 var
+R70790:70790 MySystem.Imp <> s:301 var
+R70784:70786 MySystem.Imp <> st':300 var
+R70802:70804 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R70800:70801 MySystem.Imp <> st:299 var
+R70805:70807 MySystem.Imp <> st':300 var
+prf 70857:70870 BreakImp while_continue
+binder 70881:70881 <> b:302
+binder 70883:70883 <> c:303
+binder 70885:70886 <> st:304
+binder 70888:70890 <> st':305
+binder 70892:70892 <> s:306
+R70931:70936 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R70899:70902 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70919:70923 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70927:70929 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R70903:70908 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R70910:70913 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R70915:70918 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R70909:70909 MySystem.Imp <> b:302 var
+R70914:70914 MySystem.Imp <> c:303 var
+R70897:70898 MySystem.Imp <> st:304 var
+R70930:70930 MySystem.Imp <> s:306 var
+R70924:70926 MySystem.Imp <> st':305 var
+R70938:70940 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R70937:70937 MySystem.Imp <> s:306 var
+R70941:70949 MySystem.Imp BreakImp SContinue constr
+prf 70999:71018 BreakImp while_stops_on_break
+binder 71029:71029 <> b:307
+binder 71031:71031 <> c:308
+binder 71033:71034 <> st:309
+binder 71036:71038 <> st':310
+R71060:71065 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71053:71055 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R71043:71047 MySystem.Imp <> beval def
+R71049:71050 MySystem.Imp <> st:309 var
+R71052:71052 MySystem.Imp <> b:307 var
+R71056:71059 MySystem.Imp <> :::'true' not
+R71090:71095 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71068:71071 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71073:71077 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71081:71083 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71072:71072 MySystem.Imp <> c:308 var
+R71066:71067 MySystem.Imp <> st:309 var
+R71084:71089 MySystem.Imp BreakImp SBreak constr
+R71078:71080 MySystem.Imp <> st':310 var
+R71098:71101 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71118:71122 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71126:71128 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71102:71107 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R71109:71112 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R71114:71117 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R71108:71108 MySystem.Imp <> b:307 var
+R71113:71113 MySystem.Imp <> c:308 var
+R71096:71097 MySystem.Imp <> st:309 var
+R71129:71137 MySystem.Imp BreakImp SContinue constr
+R71123:71125 MySystem.Imp <> st':310 var
+prf 71187:71198 BreakImp seq_continue
+binder 71209:71210 <> c1:311
+binder 71212:71213 <> c2:312
+binder 71215:71216 <> st:313
+binder 71218:71220 <> st':314
+binder 71222:71225 <> st'':315
+R71258:71263 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71232:71235 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71238:71242 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71246:71248 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71236:71237 MySystem.Imp <> c1:311 var
+R71230:71231 MySystem.Imp <> st:313 var
+R71249:71257 MySystem.Imp BreakImp SContinue constr
+R71243:71245 MySystem.Imp <> st':314 var
+R71294:71299 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71267:71270 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71273:71277 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71282:71284 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71271:71272 MySystem.Imp <> c2:312 var
+R71264:71266 MySystem.Imp <> st':314 var
+R71285:71293 MySystem.Imp BreakImp SContinue constr
+R71278:71281 MySystem.Imp <> st'':315 var
+R71302:71305 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71313:71317 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71322:71324 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71308:71310 MySystem.Imp BreakImp :com:com_scope:x_';'_x not
+R71306:71307 MySystem.Imp <> c1:311 var
+R71311:71312 MySystem.Imp <> c2:312 var
+R71300:71301 MySystem.Imp <> st:313 var
+R71325:71333 MySystem.Imp BreakImp SContinue constr
+R71318:71321 MySystem.Imp <> st'':315 var
+prf 71383:71400 BreakImp seq_stops_on_break
+binder 71411:71412 <> c1:316
+binder 71414:71415 <> c2:317
+binder 71417:71418 <> st:318
+binder 71420:71422 <> st':319
+R71452:71457 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71429:71432 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71435:71439 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71443:71445 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71433:71434 MySystem.Imp <> c1:316 var
+R71427:71428 MySystem.Imp <> st:318 var
+R71446:71451 MySystem.Imp BreakImp SBreak constr
+R71440:71442 MySystem.Imp <> st':319 var
+R71460:71463 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71471:71475 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71479:71481 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71466:71468 MySystem.Imp BreakImp :com:com_scope:x_';'_x not
+R71464:71465 MySystem.Imp <> c1:316 var
+R71469:71470 MySystem.Imp <> c2:317 var
+R71458:71459 MySystem.Imp <> st:318 var
+R71482:71487 MySystem.Imp BreakImp SBreak constr
+R71476:71478 MySystem.Imp <> st':319 var
+prf 71616:71631 BreakImp while_break_true
+binder 71642:71642 <> b:320
+binder 71644:71644 <> c:321
+binder 71646:71647 <> st:322
+binder 71649:71651 <> st':323
+R71698:71703 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71658:71661 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71678:71682 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71686:71688 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71662:71667 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R71669:71672 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R71674:71677 MySystem.Imp BreakImp :com:com_scope:'while'_x_'do'_x_'end' not
+R71668:71668 MySystem.Imp <> b:320 var
+R71673:71673 MySystem.Imp <> c:321 var
+R71656:71657 MySystem.Imp <> st:322 var
+R71689:71697 MySystem.Imp BreakImp SContinue constr
+R71683:71685 MySystem.Imp <> st':323 var
+R71722:71727 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71715:71717 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R71704:71708 MySystem.Imp <> beval def
+R71710:71712 MySystem.Imp <> st':323 var
+R71714:71714 MySystem.Imp <> b:320 var
+R71718:71721 MySystem.Imp <> :::'true' not
+R71728:71734 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R71739:71740 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 71735:71738 <> st'':324
+R71745:71748 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71750:71754 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71758:71760 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71749:71749 MySystem.Imp <> c:321 var
+R71741:71744 MySystem.Imp <> st'':324 var
+R71761:71766 MySystem.Imp BreakImp SBreak constr
+R71755:71757 MySystem.Imp <> st':323 var
+prf 71896:71914 BreakImp ceval_deterministic
+R71927:71929 MySystem.Imp BreakImp com ind
+binder 71925:71925 <> c:325
+binder 71932:71933 <> st:326
+binder 71935:71937 <> st1:327
+binder 71939:71941 <> st2:328
+binder 71943:71944 <> s1:329
+binder 71946:71947 <> s2:330
+R71975:71983 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71957:71960 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71962:71966 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71970:71972 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71961:71961 MySystem.Imp <> c:325 var
+R71955:71956 MySystem.Imp <> st:326 var
+R71973:71974 MySystem.Imp <> s1:329 var
+R71967:71969 MySystem.Imp <> st1:327 var
+R72004:72012 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71986:71989 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71991:71995 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71999:72001 MySystem.Imp BreakImp :::x_'=['_x_']=>'_x_'/'_x not
+R71990:71990 MySystem.Imp <> c:325 var
+R71984:71985 MySystem.Imp <> st:326 var
+R72002:72003 MySystem.Imp <> s2:330 var
+R71996:71998 MySystem.Imp <> st2:328 var
+R72022:72025 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R72016:72018 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R72013:72015 MySystem.Imp <> st1:327 var
+R72019:72021 MySystem.Imp <> st2:328 var
+R72028:72030 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R72026:72027 MySystem.Imp <> s1:329 var
+R72031:72032 MySystem.Imp <> s2:330 var
+R72088:72095 MySystem.Imp BreakImp <> mod
