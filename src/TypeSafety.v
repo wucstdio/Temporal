@@ -56,8 +56,8 @@ Proof.
     + inversion H.
     + assumption.
 Qed.
-(* 
-Lemma single_comp_impossible : forall (Omega: context) (P Q: Proc) (z: string) (T: CType),
+
+(* Lemma single_comp_impossible : forall (Omega: context) (P Q: Proc) (z: string) (T: CType),
   ~ (Omega |-- <{P | Q}> :: z \in T).
 Proof.
   intros. unfold not. intros. dependent induction H.
@@ -104,7 +104,164 @@ Proof.
   unfold not in H.
   Admitted.
 
-Lemma Progress : forall (P : Proc) (z: string) (T: CType),
+Lemma merge_update_assoc : forall (Omega Omega': context) (x: string) (T: CType),
+  ((x |-> T; Omega); Omega') = (x |-> T; (Omega; Omega')).
+Proof. Admitted.
+
+Lemma merge_swap : forall (Omega Omega': context),
+  (Omega; Omega') = (Omega'; Omega).
+Proof. Admitted.
+
+Lemma merge_assoc : forall (Omega1 Omega2 Omega3: context),
+  ((Omega1; Omega2); Omega3) = (Omega1; (Omega2; Omega3)).
+Proof. Admitted.
+
+Lemma merge_equal : forall (Omega Omega': context) (x: string) (A B: CType),
+  (x |-> A; Omega) = (x |-> B; Omega') -> A = B.
+Proof. Admitted.
+
+Lemma update_swap : forall (Omega: context) (x y: string) (A B: CType),
+  x <> y -> (x |-> A; y |-> B; Omega) = (y |-> B; x |-> A; Omega).
+Proof. Admitted.
+
+Lemma tmp1 : forall (Omega Omega': context) (x: string) (A B: CType),
+  (x |-> A; Omega) = (x |->A; Omega') -> (x |-> B; Omega) = (x |-> B; Omega').
+Proof. Admitted.
+
+Theorem Preservation : forall (P Q: Proc) (Omega: context) (z: string) (T: CType),
+  Omega |-- P :: z \in T -> P --> Q -> Omega |-- Q :: z \in T.
+Proof.
+  intros.
+  induction H0.
+  - inversion H.
+    + subst. inversion H2.
+      * subst. inversion H3.
+        ** subst. apply merge_equal in H0 as H1. inversion H1. subst.
+           apply TCong with (P := <{P0 | Q0 | [z0 := y] P}>).
+           *** rewrite merge_assoc. apply TCut with (x := y) (A := A0).
+               **** apply H6.
+               **** rewrite merge_swap. rewrite <- merge_update_assoc. rewrite merge_swap.
+                    apply TCut with (x := x0) (A := B).
+                    ***** apply H7.
+                    ***** apply tmp1 with (B := B) in H0.
+                          rewrite update_swap. 2:{ apply H14. } rewrite <- H0.
+                          apply rename_type_context with (x := z0) (y := y) in H15.
+                          apply H15.
+    
+    dependent induction H4.
+      * specialize IHhas_type with (y := y) (Q := Q).
+        rewrite merge_assoc. apply TSubBoxL.
+        ** rewrite <- merge_assoc. apply IHhas_type.
+           *** apply TCut with (A := T0).
+               **** apply H4.
+               **** apply H6.
+               **** clear z T z0 P w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H10.
+                    unfold not in H9. unfold has_comm in H9.
+                    unfold not. intros. unfold has_comm in H.
+                    inversion H. inversion H0. inversion H1. clear H H0 H1.
+                    destruct H9. destruct H2. exists x0.
+                    unfold update in H. unfold t_update in H.
+                    unfold update. unfold t_update.
+                    destruct (String.eqb x x0) eqn:E1.
+                    ***** exists A. exists x2. split. reflexivity. apply H0.
+                    ***** exists x1. exists x2. split. apply H. apply H0.
+               **** clear T z0 P Omega' w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H9.
+                    unfold update in H10. unfold t_update in H10.
+                    unfold update. unfold t_update.
+                    destruct (String.eqb x z) eqn:E1.
+                    ***** inversion H10.
+                    ***** apply H10.
+           *** apply H0.
+           *** reflexivity.
+           *** apply H6.
+           *** clear z T z0 P w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H10.
+               unfold not. intros. destruct H9.
+               unfold has_comm. unfold has_comm in H.
+               inversion H. inversion H0. clear H H0. inversion H1. clear H1.
+               exists x0.
+               unfold update. unfold t_update.
+               unfold update in H. unfold t_update in H.
+               destruct (String.eqb x x0) eqn:E1.
+               ***** exists A. exists x2. split. reflexivity. apply H.
+               ***** exists x1. exists x2. inversion H. split. apply H0. apply H1.
+           *** clear T z0 P Omega' w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H9.
+               unfold update. unfold t_update.
+               unfold update in H10. unfold t_update in H10.
+               destruct (String.eqb x z) eqn:E1.
+               ***** inversion H10.
+               ***** apply H10.
+        ** apply H1.
+      * specialize IHhas_type with (y := y) (Q := Q).
+        apply IHhas_type.
+        ** apply H.
+        ** apply H0.
+        ** reflexivity.
+        ** apply TSubBoxL. apply H6. apply H1.
+        ** apply H9.
+        ** apply H10.
+      * rewrite merge_assoc. apply TSubDiaL.
+        ** rewrite <- merge_assoc. apply IHhas_type.
+           *** apply TCut with (A := T0).
+               **** apply H4.
+               **** apply H6.
+               **** clear z T z0 P w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H10.
+                    unfold not in H9. unfold has_comm in H9.
+                    unfold not. intros. unfold has_comm in H.
+                    inversion H. inversion H0. inversion H1. clear H H0 H1.
+                    destruct H9. destruct H2. exists x0.
+                    unfold update in H. unfold t_update in H.
+                    unfold update. unfold t_update.
+                    destruct (String.eqb x x0) eqn:E1.
+                    ***** exists <{\Next A}>. exists x2. split. reflexivity. apply H0.
+                    ***** exists x1. exists x2. split. apply H. apply H0.
+               **** clear T z0 P Omega' w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H9.
+                    unfold update in H10. unfold t_update in H10.
+                    unfold update. unfold t_update.
+                    destruct (String.eqb x z) eqn:E1.
+                    ***** inversion H10.
+                    ***** apply H10.
+           *** apply H0.
+           *** reflexivity.
+           *** apply H6.
+           *** clear z T z0 P w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H10.
+               unfold not. intros. destruct H9.
+               unfold has_comm. unfold has_comm in H.
+               inversion H. inversion H0. clear H H0. inversion H1. clear H1.
+               exists x0.
+               unfold update. unfold t_update.
+               unfold update in H. unfold t_update in H.
+               destruct (String.eqb x x0) eqn:E1.
+               ***** exists <{\Next A}>. exists x2. split. reflexivity. apply H.
+               ***** exists x1. exists x2. inversion H. split. apply H0. apply H1.
+           *** clear T z0 P Omega' w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H9.
+               unfold update. unfold t_update.
+               unfold update in H10. unfold t_update in H10.
+               destruct (String.eqb x z) eqn:E1.
+               ***** inversion H10.
+               ***** apply H10.
+        ** apply H1.
+      * apply IHhas_type.
+        ** apply H.
+        ** apply H0.
+        ** reflexivity.
+        ** apply TSubDiaL. apply H6. apply H1.
+        ** apply H9.
+        ** apply H10.
+      * apply IHhas_type.
+        ** apply H.
+        ** apply H0.
+        ** clear z T z0 P Omega' w Omega T0 H4 IHhas_type H H0 H6 H9 H10.
+           dependent induction H1. reflexivity.
+           specialize IHmulti with (y := y) (Q := Q) (z1 := z1).
+           assert (y0 = <{z1<y>; Q}>). { apply IHmulti. reflexivity. }
+           subst. clear IHmulti H1.
+           inversion H.
+        ** apply H6.
+        ** apply H9.
+        ** apply H10.
+    + subst.
+
+(* Lemma Progress : forall (P : Proc) (z: string) (T: CType),
   empty |-- P :: z \in T -> not_poised P ->
   exists (Q: Proc), P --> Q.
 Proof.
@@ -188,6 +345,6 @@ Proof.
            subst. clear H1 IHmulti. inversion H.
   - apply so_empty in x. destruct x. subst. clear H2 H1.
     inversion H3.
-    + subst.
+    + subst. *)
 
 End TypeSafety.

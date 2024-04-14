@@ -20,6 +20,7 @@ Inductive CType : Type :=
 (* Processes *)
 Inductive Proc : Type :=
   | Comp : Proc -> Proc -> Proc
+  | New : string -> Proc -> Proc
   | Send : string -> string -> Proc -> Proc
   | Recv : string -> string -> Proc -> Proc
   | Inl : string -> Proc -> Proc
@@ -53,6 +54,8 @@ Notation "\Dia A" := (Diamond A) (in custom baseSystem at level 49, right associ
 Example test_CType : CType := <{\Box (\Next 1 & (\Dia 1 -o 1))}>.
 
 Notation "P | Q" := (Comp P Q) (in custom baseSystem at level 90, right associativity).
+Notation "\ x , P" := (New x P) (in custom baseSystem at level 80,
+                                  right associativity).
 Notation "x < y > ; P" := (Send x y P) (in custom baseSystem at level 80,
                                         right associativity).
 Notation "x ( y ) ; P" := (Recv x y P) (in custom baseSystem at level 80,
@@ -85,10 +88,10 @@ Hint Unfold x : core.
 Hint Unfold y : core.
 Hint Unfold z : core.
 
-Example test_Proc := <{(C[z] | (x(w); W[w]; C[x] | x<z>; W[x]; C[y]))}>.
+Example test_Proc := <{\z, (C[z] | \x, (x(w); W[w]; C[x] | x<z>; W[x]; C[y]))}>.
 
 (* Free: free variables *)
-(* Inductive Free : string -> Proc -> Prop :=
+Inductive Free : string -> Proc -> Prop :=
   | FCompL : forall (x : string) (P Q : Proc), Free x P -> Free x <{P | Q}>
   | FCompR : forall (x : string) (P Q : Proc), Free x Q -> Free x <{P | Q}>
   | FNew : forall (x y : string) (P : Proc), Free x P -> x <> y -> Free x <{\y, P}>
@@ -111,12 +114,14 @@ Example test_Proc := <{(C[z] | (x(w); W[w]; C[x] | x<z>; W[x]; C[y]))}>.
   | FWhenP : forall (x y : string) (P: Proc), Free x P -> Free x <{?[y]; P}>
   | FNowC : forall (x : string) (P: Proc), Free x <{![x]; P}>
   | FNowP : forall (x y : string) (P: Proc), Free x P -> Free x <{![y]; P}>
-  | FDelay : forall (x : string) (P: Proc), Free x P -> Free x <{D; P}>. *)
+  | FDelay : forall (x : string) (P: Proc), Free x P -> Free x <{D; P}>.
 
 (* Exist: existing variables, useful when checking congruency *)
 Inductive Exist : string -> Proc -> Prop :=
   | ECompL : forall (x : string) (P Q : Proc), Exist x P -> Exist x <{P | Q}>
   | ECompR : forall (x : string) (P Q : Proc), Exist x Q -> Exist x <{P | Q}>
+  | ENewC : forall (x : string) (P : Proc), Exist x <{\x, P}>
+  | ENewP : forall (x y : string) (P : Proc), Exist x P -> Exist x <{\y, P}>
   | ESendM : forall (x y : string) (P : Proc), Exist x <{y<x>; P}>
   | ESendC : forall (x z : string) (P : Proc), Exist x <{x<z>; P}>
   | ESendP : forall (x y z : string) (P : Proc), Exist x P -> Exist x <{y<z>; P}>
@@ -139,11 +144,13 @@ Inductive Exist : string -> Proc -> Prop :=
   | ENowP : forall (x y : string) (P: Proc), Exist x P -> Exist x <{![y]; P}>
   | EDelay : forall (P: Proc), Exist x P -> Exist x <{D; P}>.
 
+
 Reserved Notation "'[' x ':=' s ']' P" (in custom baseSystem at level 20, right associativity, x constr).
 (* Rename function *)
 Fixpoint subst (x : string) (s : string) (P : Proc) : Proc :=
   match P with
   | <{Q | R}> => <{[x:=s] Q | [x:=s] R}>
+  | <{\y, Q}> => if String.eqb x y then P else <{\y, [x:=s] Q}>
   | <{y<z>; Q}> =>
       if String.eqb x y then (if String.eqb x z then <{s<s>; [x:=s] Q}> else <{s<z>; [x:=s] Q}>)
       else (if String.eqb x z then <{y<s>; [x:=s] Q}> else <{y<z>; [x:=s] Q}>)
@@ -159,30 +166,135 @@ Fixpoint subst (x : string) (s : string) (P : Proc) : Proc :=
   | <{![y]; Q}> => if String.eqb x y then <{![s]; [x:=s]Q}> else <{![y]; [x:=s]Q}>
   | <{D; Q}> => <{D; [x:=s]Q}>
   end
+
 where "'[' x ':=' s ']' P" := (subst x s P) (in custom baseSystem).
+
+Reserved Notation "'[' x '::=' s ']' P" (in custom baseSystem at level 20, right associativity, x constr).
+(* Only bounded names *)
+Fixpoint rename (x : string) (s : string) (P : Proc) : Proc :=
+  match P with
+  | <{Q | R}> => <{[x ::= s] Q | [x ::= s] R}>
+  | <{\y, Q}> => if String.eqb x y then <{\s, [x := s] [x ::= s] Q}> else <{\y, [x ::= s] Q}>
+  | <{y<z>; Q}> => <{y<z>; [x ::= s] Q}>
+  | <{y(z); Q}> => if String.eqb x z then <{y(s); [x := s] [x ::= s] Q}> else <{y(z); [x ::= s]Q}>
+  | <{y.inl; Q}> => <{y.inl; [x ::= s] Q}>
+  | <{y.inr; Q}> => <{y.inr; [x ::= s] Q}>
+  | <{y.case( Q, R )}> => <{y.case( [x ::= s]Q, [x ::= s]R )}>
+  | <{W[y]; Q}> => <{W[y]; [x ::= s]Q}>
+  | <{C[y]}> => <{C[y]}>
+  | <{?[y]; Q}> => <{?[y]; [x ::= s]Q}>
+  | <{![y]; Q}> => <{![y]; [x ::= s]Q}>
+  | <{D; Q}> => <{D; [x ::= s]Q}>
+  end
+
+where "'[' x '::=' s ']' P" := (rename x s P) (in custom baseSystem).
+
+Compute <{[y := z] test_Proc }>.
+Compute <{[y ::= z] test_Proc }>.
 
 Reserved Notation "P ≡' Q" (at level 99).
 Inductive Congruence' : Proc -> Proc -> Prop :=
+  | SNew : forall (x: string) (P Q: Proc), P ≡' Q -> <{\x, P}> ≡' <{\x, Q}>
+  | SNewNew : forall (x y: string) (P: Proc), <{\x, \y, P}> ≡' <{\y, \x, P}>
   | SComp : forall (P Q: Proc), <{P | Q}> ≡' <{Q | P}>
   | SAssoc : forall (P Q R: Proc), <{(P | Q) | R}> ≡' <{P | (Q | R)}>
   | SAssoc' : forall (P Q R: Proc), <{P | (Q | R)}> ≡' <{(P | Q) | R}>
+  | SNewComp : forall (x: string) (P Q: Proc),
+      ~Free x P -> <{P | \x, Q}> ≡' <{\x, (P | Q)}>
+  | SNewComp' : forall (x: string) (P Q: Proc),
+      ~Free x P -> <{\x, (P | Q)}> ≡' <{P | \x, Q}>
   | SDelay : forall (P Q: Proc), <{D; (P | Q)}> ≡' <{(D; P) | (D; Q)}>
   | SDelay' : forall (P Q: Proc), <{(D; P) | (D; Q)}> ≡' <{D; (P | Q)}>
+  | SNewDelay : forall (x: string) (P: Proc), <{\x, D; P}> ≡' <{D; \x, P}>
+  | SNewDelay' : forall (x: string) (P: Proc), <{D; \x, P}> ≡' <{\x, D; P}>
 where "P ≡' Q" := (Congruence' P Q).
 
 Theorem SSwap : forall (P Q: Proc), P ≡' Q -> Q ≡' P.
 Proof.
   intros.
   induction H.
+  - apply SNew. apply IHCongruence'.
+  - apply SNewNew.
   - apply SComp.
   - apply SAssoc'.
   - apply SAssoc.
+  - apply SNewComp'. apply H.
+  - apply SNewComp. apply H.
   - apply SDelay'.
   - apply SDelay.
+  - apply SNewDelay'.
+  - apply SNewDelay.
 Qed.
 
 Notation Congruence := (multi Congruence').
 Notation "P ≡ Q" := (Congruence P Q) (at level 99).
+
+Inductive next_operation: string -> Proc -> Prop :=
+  | OClose: forall (x: string),
+      next_operation x <{C[x]}>
+  | OWait: forall (x: string) (P: Proc),
+      next_operation x <{W[x]; P}>
+  | OSend: forall (x y: string) (P: Proc),
+      next_operation x <{x<y>; P}>
+  | ORecv: forall (x y: string) (P: Proc),
+      next_operation x <{x(y); P}>
+  | OWhen: forall (x: string) (P: Proc),
+      next_operation x <{?[x]; P}>
+  | ONow: forall (x: string) (P: Proc),
+      next_operation x <{![x]; P}>
+  | ONew: forall (x y: string) (P: Proc),
+      next_operation x P -> next_operation x <{\y, P}>
+  | ODelay: forall (x: string) (P: Proc),
+      next_operation x P -> next_operation x <{D; P}>
+  | OCompL: forall (x: string) (P Q: Proc),
+      next_operation x P -> next_operation x <{P | Q}>
+  | OCompR: forall (x: string) (P Q: Proc),
+      next_operation x Q -> next_operation x <{P | Q}>.
+
+Theorem op_closed_under_cong': forall (P Q: Proc) (x: string),
+  P ≡' Q -> next_operation x P -> next_operation x Q.
+Proof.
+  intros.
+  induction H.
+  - apply ONew. apply IHCongruence'. inversion H0. apply H3.
+  - apply ONew. apply ONew. inversion H0. inversion H2. apply H6.
+  - inversion H0.
+    + apply OCompR. apply H2.
+    + apply OCompL. apply H2.
+  - inversion H0.
+    + subst. inversion H2.
+      * subst. apply OCompL. apply H3.
+      * subst. apply OCompR. apply OCompL. apply H3.
+    + subst. apply OCompR. apply OCompR. apply H2.
+  - inversion H0.
+    + subst. apply OCompL. apply OCompL. apply H2.
+    + subst. inversion H2.
+      * subst. apply OCompL. apply OCompR. apply H3.
+      * subst. apply OCompR. apply H3.
+  - apply ONew. inversion H0.
+    + subst. apply OCompL. apply H3.
+    + subst. apply OCompR. inversion H3. apply H4.
+  - inversion H0. subst. inversion H3.
+    + subst. apply OCompL. apply H4.
+    + subst. apply OCompR. apply ONew. apply H4.
+  - inversion H0. subst. inversion H2.
+    + subst. apply OCompL. apply ODelay. apply H3.
+    + subst. apply OCompR. apply ODelay. apply H3.
+  - apply ODelay. inversion H0.
+    + subst. apply OCompL. inversion H2. apply H3.
+    + subst. apply OCompR. inversion H2. apply H3.
+  - apply ODelay. apply ONew. inversion H0. inversion H2. apply H6.
+  - apply ONew. apply ODelay. inversion H0. inversion H2. apply H5.
+Qed.
+
+Theorem op_closed_under_cong: forall (P Q: Proc) (x: string),
+  P ≡ Q -> next_operation x P -> next_operation x Q.
+Proof.
+  intros. dependent induction H.
+  - apply H0.
+  - apply IHmulti. apply op_closed_under_cong' with (P := x1).
+    apply H. apply H1.
+Qed.
 
 Definition has_comm {A: Type} (M1 M2: partial_map A): Prop :=
   exists (x: string) (a b: A), M1 x = Some a /\ M2 x = Some b.
@@ -218,11 +330,6 @@ Definition delayed_dia (Omega: context): Prop :=
   forall (x: string) (A: CType),
     Omega x = Some A -> delayed_dia' A.
 
-(* Rename context *)
-Definition subst_context (x : string) (y : string) (Gamma : context) : context :=
-  fun x' => if (String.eqb x' y) then Gamma x else Gamma x'.
-Notation "'[' x '::=' y ']' Gamma" := (subst_context x y Gamma) (at level 20, right associativity, x constr).
-
 Reserved Notation "Omega '|--' P '::' x '\in' T"
             (at level 101, P custom baseSystem, T custom baseSystem at level 0).
 Inductive has_type : context -> Proc -> string -> CType -> Prop :=
@@ -239,14 +346,14 @@ Inductive has_type : context -> Proc -> string -> CType -> Prop :=
       Omega' |-- Q :: x \in B ->
       ~has_comm Omega Omega' ->
       Omega x = None -> x <> y ->
-      Omega; Omega' |-- <{x<y>; (P | Q)}> :: x \in <{A * B}>
+      Omega; Omega' |-- <{\y, x<y>; (P | Q)}> :: x \in <{A * B}>
   | TLolliL : forall (Omega Omega': context) (P Q: Proc) (x y z: string) (A B T: CType),
       Omega |-- P :: y \in A ->
       x |-> B; Omega' |-- Q :: z \in T ->
       ~has_comm Omega Omega' ->
       Omega' y = None -> Omega z = None ->
       x <> y -> z <> y ->
-      x |-> <{A -o B}>; Omega; Omega' |-- <{x<y>; (P | Q)}> :: z \in T
+      x |-> <{A -o B}>; Omega; Omega' |-- <{\y, x<y>; (P | Q)}> :: z \in T
   | TLolliR : forall (Omega: context) (P: Proc) (x y: string) (A B: CType),
       y |-> A; Omega |-- P :: x \in B ->
       Omega |-- <{x(y); P}> :: x \in <{A -o B}>
@@ -255,7 +362,7 @@ Inductive has_type : context -> Proc -> string -> CType -> Prop :=
       x |-> A; Omega' |-- Q :: z \in T ->
       ~has_comm Omega Omega' ->
       Omega z = None ->
-      Omega; Omega' |-- <{P | Q}> :: z \in T
+      Omega; Omega' |-- <{\x, (P | Q)}> :: z \in T
   (* TCut', TCopy, T!L, T!R *)
   | TOplusL : forall (Omega: context) (P Q: Proc) (x z: string) (A B T: CType),
       x |-> A; Omega |-- P :: z \in T ->
@@ -408,15 +515,59 @@ Proof.
       * reflexivity.
       * Admitted.
 
-Theorem rename_type_context : forall (Omega: context) (P: Proc) (x y z: string) (T: CType),
-  Omega |-- P :: z \in T -> x <> z ->
-  [x ::= y] Omega |-- [x := y] P :: z \in T.
-Proof. Admitted.
-
-Theorem rename_type_service : forall (Omega: context) (P: Proc) (x y: string) (T: CType),
-  Omega |-- P :: x \in T ->
-  Omega |-- [x := y] P :: y \in T.
-Proof. Admitted.
+Inductive not_poised : Proc -> Prop :=
+  | PT1L : forall (Omega: context) (x y: string) (P: Proc) (T: CType),
+      Omega |-- P :: x \in T -> x <> y ->
+      not_poised <{W[y]; P}>
+  | PTOtimesL : forall (Omega: context) (x y z: string) (P: Proc) (A B T: CType),
+      y |-> A; x |-> B; Omega |-- P :: z \in T ->
+      x <> y -> x <> z ->
+      not_poised <{x(y); P}>
+  | PTLolliL : forall (Omega Omega': context) (P Q: Proc) (x y z: string) (A B T: CType),
+      Omega |-- P :: y \in A ->
+      x |-> B; Omega' |-- Q :: z \in T ->
+      ~has_comm Omega Omega' ->
+      Omega' y = None -> Omega z = None ->
+      x <> y -> z <> y ->
+      not_poised <{\y, x<y>; (P | Q)}>
+  | PTCut1 : forall (Omega Omega': context) (P Q: Proc) (x z: string) (A T: CType),
+      Omega |-- P :: x \in A ->
+      x |-> A; Omega' |-- Q :: z \in T ->
+      ~has_comm Omega Omega' ->
+      Omega z = None ->
+      not_poised P ->
+      not_poised <{\x, (P | Q)}>
+  | PTCut2 : forall (Omega Omega': context) (P Q: Proc) (x z: string) (A T: CType),
+      Omega |-- P :: x \in A ->
+      x |-> A; Omega' |-- Q :: z \in T ->
+      ~has_comm Omega Omega' ->
+      Omega z = None ->
+      not_poised Q ->
+      not_poised <{\x, (P | Q)}>
+  | PTOplusL : forall (Omega: context) (P Q: Proc) (x z: string) (A B T: CType),
+      x |-> A; Omega |-- P :: z \in T ->
+      x |-> B; Omega |-- Q :: z \in T ->
+      not_poised <{x.case(P, Q)}>
+  | PTWithL1 : forall (Omega: context) (P: Proc) (x z: string) (A B T: CType),
+      x |-> A; Omega |-- P :: z \in T ->
+      not_poised <{x.inl; P}>
+  | PTWithL2 : forall (Omega: context) (P: Proc) (x z: string) (A B T: CType),
+      x |-> B; Omega |-- P :: z \in T ->
+      not_poised <{x.inr; P}>
+  | PTDelay : forall (Omega: context) (P: Proc) (z: string) (T: CType),
+      Omega |-- P :: z \in T ->
+      not_poised P ->
+      not_poised <{D; P}>
+  | PTBoxL : forall (Omega: context) (P: Proc) (x z: string) (A T: CType),
+      x |-> A; Omega |-- P :: z \in T ->
+      not_poised <{![x]; P}>
+  | PTDiaL : forall (Omega: context) (P: Proc) (x z: string) (A T: CType),
+      x |-> A; Omega |-- P :: z \in T ->
+      delayed_box Omega ->
+      delayed_dia' T ->
+      not_poised <{?[x]; P}>
+  | PTCong : forall (P Q: Proc),
+      not_poised P -> P ≡ Q -> not_poised Q.
 
 Theorem no_dup : forall (Omega: context) (P: Proc) (x: string) (A: CType),
   Omega |-- P :: x \in A ->
@@ -496,57 +647,188 @@ Proof.
   - apply IHhas_type.
 Qed.
 
+Theorem free_closed_under_cong : forall (P Q: Proc) (x: string),
+  Free x P -> P ≡ Q -> Free x Q.
+Proof.
+  intros.
+  induction H0 as [P | P Q R].
+  - apply H.
+  - apply IHmulti. clear R H1 IHmulti. induction H0.
+    + inversion H. subst. apply IHCongruence' in H4. apply FNew.
+      * apply H4.
+      * apply H5.
+    + inversion H. subst. inversion H3. subst. apply FNew.
+      * apply FNew. apply H5. apply H4.
+      * apply H6.
+    + inversion H.
+      * apply FCompR. apply H2.
+      * apply FCompL. apply H2.
+    + inversion H.
+      * subst. inversion H2.
+        ** subst. apply FCompL. apply H3.
+        ** subst. apply FCompR. apply FCompL. apply H3.
+      * subst. apply FCompR. apply FCompR. apply H2.
+    + inversion H.
+      * subst. apply FCompL. apply FCompL. apply H2.
+      * subst. inversion H2.
+        ** subst. apply FCompL. apply FCompR. apply H3.
+        ** subst. apply FCompR. apply H3.
+    + destruct (String.eqb x0 x1) eqn:E1.
+      * apply eqb_eq in E1. rewrite E1 in H. inversion H.
+        ** apply H0 in H3. inversion H3.
+        ** subst. inversion H3.
+           assert (x1 = x1). { reflexivity. } apply H6 in H7. inversion H7.
+      * apply eqb_neq in E1. apply FNew.
+        ** inversion H.
+           *** apply FCompL. apply H3.
+           *** subst. inversion H3. subst. apply FCompR. apply H5.
+        ** apply E1.
+    + inversion H. subst. inversion H4.
+      * subst. apply FCompL. apply H3.
+      * subst. apply FCompR. apply FNew.
+        ** apply H3.
+        ** apply H5.
+    + inversion H. subst. inversion H2.
+      * apply FCompL. apply FDelay. apply H3.
+      * apply FCompR. apply FDelay. apply H3.
+    + apply FDelay. inversion H.
+      * subst. inversion H2. apply FCompL. apply H3.
+      * subst. inversion H2. apply FCompR. apply H3.
+    + inversion H. subst. inversion H3. subst.
+      apply FDelay. apply FNew.
+      * apply H2.
+      * apply H4.
+    + inversion H. subst. inversion H2. subst.
+      apply FNew.
+      * apply FDelay. apply H4.
+      * apply H5.
+Qed.
+
+Theorem next_operation_in_context : forall (Omega: context) (P: Proc) (x z: string) (T: CType),
+  Omega |-- P :: z \in T -> next_operation x P -> (x = z \/ ~ Omega x = None).
+Proof.
+  intros. dependent induction H.
+  - inversion H1. clear. right. unfold update. unfold t_update.
+    destruct (String.eqb y0 y0) eqn: E1.
+    + unfold not. intros. inversion H.
+    + apply eqb_neq in E1. assert (y0 = y0). { reflexivity. }
+      apply E1 in H. contradiction.
+  - inversion H0. clear. left. reflexivity.
+  - inversion H1. subst. clear. right. unfold update. unfold t_update.
+    destruct (String.eqb x1 x1) eqn: E1.
+    + unfold not. intros. inversion H.
+    + apply eqb_neq in E1. assert (x1 = x1). { reflexivity. }
+      apply E1 in H. contradiction.
+  - inversion H4. subst. inversion H7. clear. left. reflexivity.
+  - inversion H6. subst. inversion H9. clear. right. unfold update. unfold t_update.
+    destruct (String.eqb x1 x1) eqn: E1.
+    + unfold not. intros. inversion H.
+    + apply eqb_neq in E1. assert (x1 = x1). { reflexivity. }
+      apply E1 in H. contradiction.
+  - inversion H0. clear. left. reflexivity.
+  - inversion H3. subst. inversion H6.
+    + subst. apply IHhas_type1 in H7. Admitted.
+
+Theorem service_must_free : forall (Omega: context) (P: Proc) (x: string) (T: CType),
+  Omega |-- P :: x \in T -> Free x P.
+Proof.
+  intros.
+  induction H.
+  - apply FWaitP. apply IHhas_type.
+  - apply FClose.
+  - apply FRecvP. apply IHhas_type. apply no_dup in H.
+    unfold update in H. unfold t_update in H.
+    destruct (String.eqb y0 z0) eqn:E1.
+    + inversion H.
+    + apply eqb_neq in E1. unfold not in E1.
+      unfold not. intros. assert (y0 = z0). { rewrite H1. reflexivity. } apply E1 in H2. inversion H2.
+  - apply FNew.
+    + apply FSendC.
+    + apply H3.
+  - apply FNew.
+    + apply FSendP. apply FCompR. apply IHhas_type2.
+    + apply H5.
+  - apply FRecvC.
+  - apply FNew.
+    + apply FCompR. apply IHhas_type2.
+    + apply no_dup in H0. unfold update in H0. unfold t_update in H0.
+      destruct (String.eqb x0 z0) eqn:E1.
+      * inversion H0.
+      * apply eqb_neq in E1. unfold not in E1.
+        unfold not. intros. assert (x0 = z0). { rewrite H3. reflexivity. } apply E1 in H4. inversion H4.
+  - apply FCaseR. apply IHhas_type2.
+  - apply FInlC.
+  - apply FInrC.
+  - apply FInlP. apply IHhas_type.
+  - apply FInrP. apply IHhas_type.
+  - apply FCaseC.
+  - apply FDelay. apply IHhas_type.
+  - apply FNowP. apply IHhas_type.
+  - apply FWhenC.
+  - apply FWhenP. apply IHhas_type.
+  - apply FNowC.
+  - apply IHhas_type.
+  - apply IHhas_type.
+  - apply IHhas_type.
+  - apply IHhas_type.
+  - apply free_closed_under_cong with (P := P).
+    + apply IHhas_type.
+    + apply H0.
+Qed.
+
 Reserved Notation "P '-->' P'" (at level 40).
 Inductive reduction : Proc -> Proc -> Prop :=
-  | RSend : forall (x y z: string) (P Q: Proc),
-      <{x<y>; Q | x(z); P}> --> <{Q | [z := y]P}>
+  | RSend : forall (x y z w: string) (P Q: Proc),
+      ~Exist w P -> <{\x, (x<y>; Q | x(z); P)}> --> <{\x, (Q | [z := y][y ::= w]P)}>
   | RInL1 : forall (x: string) (P Q R: Proc),
-      <{x.inl; P | x.case( Q, R )}> --> <{P | Q}>
+      <{\x, (x.inl; P | x.case( Q, R ))}> --> <{\x, (P | Q)}>
   | RInL2 : forall (x: string) (P Q R: Proc),
-      <{x.case( Q, R ) | x.inl; P}> --> <{Q | P}>
+      <{\x, (x.case( Q, R ) | x.inl; P)}> --> <{\x, (Q | P)}>
   | RInR1 : forall (x: string) (P Q R: Proc),
-      <{x.inr; P | x.case( Q, R )}> --> <{P | R}>
+      <{\x, (x.inr; P | x.case( Q, R ))}> --> <{\x, (P | R)}>
   | RInR2 : forall (x: string) (P Q R: Proc),
-      <{x.case( Q, R ) | x.inr; P}> --> <{R | P}>
+      <{\x, (x.case( Q, R ) | x.inr; P)}> --> <{\x, (R | P)}>
   | RComp1 : forall (P P' Q: Proc),
       P --> P' -> <{P | Q}> --> <{P' | Q}>
   | RComp2 : forall (P Q Q': Proc),
       Q --> Q' -> <{P | Q}> --> <{P | Q'}>
+  | RNew : forall (x: string) (P Q: Proc),
+      P --> Q -> <{\x, P}> --> <{\x, Q}>
   | RClose : forall (x: string) (P: Proc),
-      <{C[x] | W[x]; P}> --> P
+      <{\x, (C[x] | W[x]; P)}> --> P
   | RCong : forall (P Q P' Q': Proc),
       P ≡ P' -> P' --> Q' -> Q' ≡ Q -> P --> Q
   | RDelay : forall (P Q: Proc),
       P --> Q -> <{D; P}> --> <{D; Q}>
   | RWhen : forall (x: string) (n: nat) (P Q: Proc),
-      <{?[x]; P | D{n}; ![x]; Q}> --> <{D{n}; P | D{n}; Q}>
+      <{\x, (?[x]; P | D{n}; ![x]; Q)}> --> <{\x, (D{n}; P | D{n}; Q)}>
 where "P '-->' P'" := (reduction P P').
 
-Theorem RRecv : forall (x y z: string) (P Q: Proc),
-  <{x(z); P | x<y>; Q}> --> <{[z := y]P | Q}>.
+Theorem RRecv : forall (x y z w: string) (P Q: Proc),
+  ~Exist w P -> <{\x, (x(z); P | x<y>; Q)}> --> <{\x, ([z := y][y ::= w]P | Q)}>.
 Proof.
   intros.
-  apply RCong with (P' := <{x0<y0>; Q | x0(z0); P}>) (Q' := <{Q | [z0 := y0]P}>).
-  - apply multi_step with (y := <{x0<y0>; Q | x0(z0); P}>).
-    + apply SComp.
+  apply RCong with (P' := <{\x0, (x0<y0>; Q | x0(z0); P)}>) (Q' := <{\x0, (Q | [z0 := y0][y0 ::= w0]P)}>).
+  - apply multi_step with (y := <{\x0, (x0<y0>; Q | x0(z0); P)}>).
+    + apply SNew. apply SComp.
     + apply multi_refl.
-  - apply RSend.
-  - apply multi_step with (y := <{[z0 := y0]P | Q}>).
-    + apply SComp.
+  - apply RSend. apply H.
+  - apply multi_step with (y := <{\x0, ([z0 := y0][y0 ::= w0]P | Q)}>).
+    + apply SNew. apply SComp.
     + apply multi_refl.
 Qed.
 
 Theorem RNow : forall (x: string) (n: nat) (P Q: Proc),
-  <{D{n}; ![x]; Q | ?[x]; P}> --> <{D{n}; Q | D{n}; P}>.
+  <{\x, (D{n}; ![x]; Q | ?[x]; P)}> --> <{\x, (D{n}; Q | D{n}; P)}>.
 Proof.
   intros.
-  apply RCong with (P' := <{?[x0]; P | D{n}; ![x0]; Q}>) (Q' := <{D{n}; P | D{n}; Q}>).
-  - apply multi_step with (y := <{?[x0]; P | D{n}; ![x0]; Q}>).
-    + apply SComp.
+  apply RCong with (P' := <{\x0, (?[x0]; P | D{n}; ![x0]; Q)}>) (Q' := <{\x0, (D{n}; P | D{n}; Q)}>).
+  - apply multi_step with (y := <{\x0, (?[x0]; P | D{n}; ![x0]; Q)}>).
+    + apply SNew. apply SComp.
     + apply multi_refl.
   - apply RWhen.
-  - apply multi_step with (y := <{D{n}; Q | D{n}; P}>).
-    + apply SComp.
+  - apply multi_step with (y := <{\x0, (D{n}; Q | D{n}; P)}>).
+    + apply SNew. apply SComp.
     + apply multi_refl.
 Qed.
 (* z:1 |-- \x, (x<z>; close x | x(y); wait x; wait y; close y') :: y':1
@@ -560,15 +842,21 @@ Notation "t1 '-->*' t2" := (multistep t1 t2) (at level 40).
 
 Theorem example4 : test_Proc -->* <{C[y]}>.
 Proof.
-  apply multi_step with (y := <{C[z] | (W[z]; C[x] | W[x]; C[y])}>).
-  - apply RComp2. apply RRecv.
-  - apply multi_step with (y := <{ C[x] | W[x]; C[y]}>).
-    + apply RCong with (P' := <{(C[z] | W[z]; C[x]) | W[x]; C[y]}>)
-                       (Q' := <{C[x] | W[x]; C[y]}>).
-      * apply multi_step with (y := <{(C[z] | W[z]; C[x]) | W[x]; C[y]}>).
-        ** apply SAssoc'.
-        ** apply multi_refl.
-      * apply RComp1. apply RClose.
+  apply multi_step with (y := <{\z, (C[z] | \x, (W[z]; C[x] | W[x]; C[y]))}>).
+  - apply RNew. apply RComp2. apply RRecv with (w := "a").
+    unfold not. intros. inversion H. subst. inversion H2.
+  - apply multi_step with (y := <{\x, ( C[x] | W[x]; C[y])}>).
+    + apply RCong with (P' := <{\x, ((\z, (C[z] | W[z]; C[x])) | W[x]; C[y])}>)
+                       (Q' := <{\x, ( C[x] | W[x]; C[y])}>).
+      * apply multi_step with (y := <{\z, \x, (C[z] | (W[z]; C[x] | W[x]; C[y]))}>).
+        ** apply SNew. apply SNewComp. unfold not. intros. inversion H.
+        ** apply multi_step with (y := <{\x, \z, (C[z] | (W[z]; C[x] | W[x]; C[y]))}>). apply SNewNew.
+           apply multi_step with (y := <{\x, \z, ((C[z] | W[z]; C[x]) | W[x]; C[y])}>). apply SNew. apply SNew. apply SSwap. apply SAssoc.
+           apply multi_step with (y := <{\x, \z, (W[x]; C[y] | (C[z] | W[z]; C[x]))}>). apply SNew. apply SNew. apply SComp.
+           apply multi_step with (y := <{\x, (W[x]; C[y] | \z, (C[z] | W[z]; C[x]))}>). apply SNew. apply SSwap. apply SNewComp. unfold not. intros. inversion H. inversion H2.
+           apply multi_step with (y := <{\x, (\z, (C[z] | W[z]; C[x]) | W[x]; C[y])}>). apply SNew. apply SComp.
+           apply multi_refl.
+      * apply RNew. apply RComp1. apply RClose.
       * apply multi_refl.
     + apply multi_step with (y := <{C[y]}>).
       * apply RClose.
