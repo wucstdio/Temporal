@@ -52,6 +52,19 @@ Notation "\Dia A" := (Diamond A) (in custom baseSystem at level 49, right associ
 
 Example test_CType : CType := <{\Box (\Next 1 & (\Dia 1 -o 1))}>.
 
+Theorem no_infinite_next: forall (T: CType),
+  ~(T = <{\Next T}>).
+Proof. intros. unfold not. intros. dependent induction T.
+  - inversion H.
+  - inversion H.
+  - inversion H.
+  - inversion H.
+  - inversion H.
+  - apply IHT. inversion H. assumption.
+  - inversion H.
+  - inversion H.
+Qed.
+
 Notation "P | Q" := (Comp P Q) (in custom baseSystem at level 90, right associativity).
 Notation "x < y > ; P" := (Send x y P) (in custom baseSystem at level 80,
                                         right associativity).
@@ -232,27 +245,27 @@ Inductive has_type : context -> Proc -> string -> CType -> Prop :=
   | T1R : forall (x: string),
       empty |-- <{C[x]}> :: x \in 1
   | TOtimesL : forall (Omega: context) (P: Proc) (x y z: string) (A B T: CType),
-      y |-> A; x |-> B; Omega |-- P :: z \in T -> x <> y ->
+      y |-> A; x |-> B; Omega |-- P :: z \in T -> x <> y -> Omega y = None ->
       x |-> <{A * B}>; Omega |-- <{x(y); P}> :: z \in T
   | TOtimesR : forall (Omega Omega': context) (P Q: Proc) (x y: string) (A B: CType),
       Omega |-- P :: y \in A ->
       Omega' |-- Q :: x \in B ->
       ~has_comm Omega Omega' ->
-      Omega x = None -> x <> y ->
+      Omega x = None -> Omega' y = None -> x <> y ->
       Omega; Omega' |-- <{x<y>; (P | Q)}> :: x \in <{A * B}>
   | TLolliL : forall (Omega Omega': context) (P Q: Proc) (x y z: string) (A B T: CType),
       Omega |-- P :: y \in A ->
-      x |-> B; Omega' |-- Q :: z \in T ->
+      x |-> B; Omega' |-- Q :: z \in T -> Omega' x = None ->
       ~has_comm Omega Omega' ->
-      Omega' y = None -> Omega z = None ->
+      Omega' y = None -> Omega z = None -> Omega x = None ->
       x <> y -> z <> y ->
       x |-> <{A -o B}>; Omega; Omega' |-- <{x<y>; (P | Q)}> :: z \in T
   | TLolliR : forall (Omega: context) (P: Proc) (x y: string) (A B: CType),
-      y |-> A; Omega |-- P :: x \in B ->
+      y |-> A; Omega |-- P :: x \in B -> Omega y = None ->
       Omega |-- <{x(y); P}> :: x \in <{A -o B}>
   | TCut : forall (Omega Omega': context) (P Q: Proc) (x z: string) (A T: CType),
       Omega |-- P :: x \in A ->
-      x |-> A; Omega' |-- Q :: z \in T ->
+      x |-> A; Omega' |-- Q :: z \in T -> Omega' x = None ->
       ~has_comm Omega Omega' ->
       Omega z = None ->
       Omega; Omega' |-- <{P | Q}> :: z \in T
@@ -371,42 +384,39 @@ Proof.
         ** specialize IHmulti with (x0 := x0).
            assert (y0 = <{C[x0]}>). { apply IHmulti. reflexivity. }
            subst. clear IHmulti H0. inversion H.
-    + intros. dependent induction H1.
-      * apply IHhas_type in H1. apply H1.
-      * apply IHhas_type in H1. apply H1.
+    + intros. dependent induction H2.
+      * apply IHhas_type in H2. apply H2.
+      * apply IHhas_type in H2. apply H2.
       * apply IHhas_type0 with (y0 := y0) (x0 := x0) (P := P).
+        ** apply H1.
         ** apply H0.
         ** apply H.
         ** apply IHhas_type.
         ** reflexivity.
       * apply IHhas_type0 with (y0 := y0) (x0 := x0) (P := P).
+        ** apply H1.
         ** apply H0.
         ** apply H.
         ** apply IHhas_type.
         ** reflexivity.
       * apply IHhas_type0 with (y0 := y0) (x0 := x0) (P := P).
+        ** apply H1.
         ** apply H0.
         ** apply H.
         ** apply IHhas_type.
         ** reflexivity.
       * apply IHhas_type0 with (y0 := y0) (x0 := x0) (P := P).
+        ** apply H1.
         ** apply H0.
         ** apply H.
         ** apply IHhas_type.
         ** reflexivity.
       * apply IHhas_type0 with (y0 := y0) (x0 := x0) (P := P).
+        ** apply H1.
         ** apply H0.
         ** apply H.
         ** apply IHhas_type.
-        ** clear Omega z0 A B T Omega0 z1 T0 H1 IHhas_type0 H0 H IHhas_type.
-           dependent induction H2.
-           *** reflexivity.
-           *** specialize IHmulti with (x0 := x0) (y0 := y0) (P := P).
-               assert (y1 = <{ x0 (y0); P }>). { apply IHmulti. reflexivity. }
-               subst. clear IHmulti H2. inversion H.
-    + intros. dependent induction H4.
-      * reflexivity.
-      * Admitted.
+        ** Admitted.
 
 Theorem rename_type_context : forall (Omega: context) (P: Proc) (x y z: string) (T: CType),
   Omega |-- P :: z \in T -> x <> z ->
@@ -416,6 +426,15 @@ Proof. Admitted.
 Theorem rename_type_service : forall (Omega: context) (P: Proc) (x y: string) (T: CType),
   Omega |-- P :: x \in T ->
   Omega |-- [x := y] P :: y \in T.
+Proof. Admitted.
+
+Theorem rename_not_exist : forall (Omega: context) (P: Proc) (x y z: string) (T: CType),
+  Omega |-- [x := y]P :: z \in T ->
+  Omega x = None.
+Proof. Admitted.
+
+Theorem not_exist : forall (Omega: context) (P: Proc) (x z: string) (T: CType),
+  Omega |-- P :: z \in T -> ~Exist x P -> x <> z /\ Omega x = None.
 Proof. Admitted.
 
 Theorem no_dup : forall (Omega: context) (P: Proc) (x: string) (A: CType),
@@ -441,7 +460,7 @@ Proof.
     unfold update in IHhas_type2. unfold t_update in IHhas_type2.
     destruct (String.eqb x0 z0) eqn:E1.
     + inversion IHhas_type2.
-    + unfold merge. rewrite H3. apply IHhas_type2.
+    + unfold merge. rewrite H4. apply IHhas_type2.
   - unfold update in IHhas_type. unfold t_update in IHhas_type.
     destruct (String.eqb y0 x0) eqn:E1.
     + inversion IHhas_type.
@@ -449,7 +468,7 @@ Proof.
   - unfold update in IHhas_type2. unfold t_update in IHhas_type2.
     destruct (String.eqb x0 z0) eqn:E1.
     + inversion IHhas_type2.
-    + unfold merge. rewrite H2. apply IHhas_type2.
+    + unfold merge. rewrite H3. apply IHhas_type2.
   - unfold update. unfold t_update.
     unfold update in IHhas_type1. unfold t_update in IHhas_type1.
     destruct (String.eqb x0 z0) eqn:E1.
@@ -499,7 +518,7 @@ Qed.
 Reserved Notation "P '-->' P'" (at level 40).
 Inductive reduction : Proc -> Proc -> Prop :=
   | RSend : forall (x y z: string) (P Q: Proc),
-      <{x<y>; Q | x(z); P}> --> <{Q | [z := y]P}>
+      ~Exist y P -> <{x<y>; Q | x(z); P}> --> <{Q | [z := y]P}>
   | RInL1 : forall (x: string) (P Q R: Proc),
       <{x.inl; P | x.case( Q, R )}> --> <{P | Q}>
   | RInL2 : forall (x: string) (P Q R: Proc),
@@ -523,14 +542,14 @@ Inductive reduction : Proc -> Proc -> Prop :=
 where "P '-->' P'" := (reduction P P').
 
 Theorem RRecv : forall (x y z: string) (P Q: Proc),
-  <{x(z); P | x<y>; Q}> --> <{[z := y]P | Q}>.
+  ~Exist y P -> <{x(z); P | x<y>; Q}> --> <{[z := y]P | Q}>.
 Proof.
   intros.
   apply RCong with (P' := <{x0<y0>; Q | x0(z0); P}>) (Q' := <{Q | [z0 := y0]P}>).
   - apply multi_step with (y := <{x0<y0>; Q | x0(z0); P}>).
     + apply SComp.
     + apply multi_refl.
-  - apply RSend.
+  - apply RSend. assumption.
   - apply multi_step with (y := <{[z0 := y0]P | Q}>).
     + apply SComp.
     + apply multi_refl.
@@ -561,7 +580,8 @@ Notation "t1 '-->*' t2" := (multistep t1 t2) (at level 40).
 Theorem example4 : test_Proc -->* <{C[y]}>.
 Proof.
   apply multi_step with (y := <{C[z] | (W[z]; C[x] | W[x]; C[y])}>).
-  - apply RComp2. apply RRecv.
+  - apply RComp2. apply RRecv. unfold not. intros.
+    inversion H. subst. inversion H2.
   - apply multi_step with (y := <{ C[x] | W[x]; C[y]}>).
     + apply RCong with (P' := <{(C[z] | W[z]; C[x]) | W[x]; C[y]}>)
                        (Q' := <{C[x] | W[x]; C[y]}>).

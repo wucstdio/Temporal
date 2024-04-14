@@ -124,142 +124,308 @@ Lemma update_swap : forall (Omega: context) (x y: string) (A B: CType),
   x <> y -> (x |-> A; y |-> B; Omega) = (y |-> B; x |-> A; Omega).
 Proof. Admitted.
 
+Lemma has_comm_mergeL : forall (Omega1 Omega2 Omega3: context),
+  has_comm Omega1 Omega3 -> has_comm (Omega1; Omega2) Omega3.
+Proof. Admitted.
+
+Lemma has_comm_mergeR : forall (Omega1 Omega2 Omega3: context),
+  has_comm Omega1 Omega2 -> has_comm Omega1 (Omega2; Omega3).
+Proof. Admitted.
+
+Lemma has_comm_mergeL' : forall (Omega1 Omega2 Omega3: context),
+  has_comm (Omega1; Omega2) Omega3 -> (has_comm Omega1 Omega2 \/ has_comm Omega2 Omega3).
+Proof. Admitted.
+
+Lemma has_comm_mergeR' : forall (Omega1 Omega2 Omega3: context),
+  has_comm Omega1 (Omega2; Omega3) -> (has_comm Omega1 Omega2 \/ has_comm Omega1 Omega3).
+Proof. Admitted.
+
 Lemma tmp1 : forall (Omega Omega': context) (x: string) (A B: CType),
-  (x |-> A; Omega) = (x |->A; Omega') -> (x |-> B; Omega) = (x |-> B; Omega').
+  (x |-> A; Omega) = (x |-> A; Omega') -> (x |-> B; Omega) = (x |-> B; Omega').
+Proof. Admitted.
+
+Lemma context_inequality : forall (Omega Omega': context) (x: string),
+  ~(Omega x = Omega' x) -> Omega ~= Omega'.
+Proof. Admitted.
+
+Lemma buggy_lemma1 : forall (x: string) (T: CType) (Omega: context),
+  (x |-> T; Omega) ~= (x |-> T; Omega).
 Proof. Admitted.
 
 Theorem Preservation : forall (P Q: Proc) (Omega: context) (z: string) (T: CType),
   Omega |-- P :: z \in T -> P --> Q -> Omega |-- Q :: z \in T.
 Proof.
-  intros.
-  induction H0.
-  - inversion H.
-    + subst. inversion H2.
-      * subst. inversion H3.
-        ** subst. apply merge_equal in H0 as H1. inversion H1. subst.
-           apply TCong with (P := <{P0 | Q0 | [z0 := y] P}>).
-           *** rewrite merge_assoc. apply TCut with (x := y) (A := A0).
-               **** apply H6.
+  intros P Q Omega z T H0 H.
+  generalize dependent H0.
+  generalize dependent T.
+  generalize dependent z.
+  generalize dependent Omega.
+  induction H.
+  - intros. dependent induction H0.
+    2:{ apply TSubBoxL. apply IHhas_type with (x := x). assumption. reflexivity. assumption. }
+    2:{ apply TSubBoxR. apply IHhas_type with (x := x). assumption. reflexivity. assumption. }
+    2:{ apply TSubDiaL. apply IHhas_type with (x := x). assumption. reflexivity. assumption. }
+    2:{ apply TSubDiaR. apply IHhas_type with (x := x). assumption. reflexivity. assumption. }
+    + clear IHhas_type1 IHhas_type2. dependent induction H0_.
+      * clear IHH0_1 IHH0_2. dependent induction H0_0.
+        ** clear IHH0_0. apply merge_equal in x as H9. inversion H9. subst.
+           clear H9. apply TCong with (P := <{P0 | Q0 | [z := y] P}>).
+           *** rewrite merge_assoc. apply TCut with (x := y) (A := A).
+               **** assumption.
                **** rewrite merge_swap. rewrite <- merge_update_assoc. rewrite merge_swap.
-                    apply TCut with (x := x0) (A := B).
-                    ***** apply H7.
-                    ***** apply tmp1 with (B := B) in H0.
-                          rewrite update_swap. 2:{ apply H14. } rewrite <- H0.
-                          apply rename_type_context with (x := z0) (y := y) in H15.
-                          apply H15.
-    
-    dependent induction H4.
-      * specialize IHhas_type with (y := y) (Q := Q).
-        rewrite merge_assoc. apply TSubBoxL.
-        ** rewrite <- merge_assoc. apply IHhas_type.
-           *** apply TCut with (A := T0).
-               **** apply H4.
-               **** apply H6.
-               **** clear z T z0 P w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H10.
-                    unfold not in H9. unfold has_comm in H9.
-                    unfold not. intros. unfold has_comm in H.
-                    inversion H. inversion H0. inversion H1. clear H H0 H1.
-                    destruct H9. destruct H2. exists x0.
-                    unfold update in H. unfold t_update in H.
-                    unfold update. unfold t_update.
-                    destruct (String.eqb x x0) eqn:E1.
-                    ***** exists A. exists x2. split. reflexivity. apply H0.
-                    ***** exists x1. exists x2. split. apply H. apply H0.
-               **** clear T z0 P Omega' w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H9.
-                    unfold update in H10. unfold t_update in H10.
-                    unfold update. unfold t_update.
-                    destruct (String.eqb x z) eqn:E1.
-                    ***** inversion H10.
-                    ***** apply H10.
-           *** apply H0.
+                    apply TCut with (x := x1) (A := B).
+                    ***** assumption.
+                    ***** apply tmp1 with (B := B) in x.
+                          rewrite update_swap. 2:{ assumption. } rewrite <- x.
+                          clear P0 Q0 Omega' Omega Omega'0 x H1 H2 H3 H4 H5 H6 H7 H0 H0_1 H0_2 H H8.
+                          apply rename_type_context with (x := z) (y := y) in H0_0 as H.
+                          2:{ apply no_dup in H0_0. unfold update in H0_0. unfold t_update in H0_0.
+                              destruct (String.eqb z z0) eqn:E1. inversion H0_0.
+                              apply eqb_neq in E1. assumption. }
+                          clear H0_0. assert ([z ::= y] (z |-> A; x1 |-> B; Omega0) = (y |-> A; x1 |-> B; Omega0)).
+                          { clear z0 T P H. apply functional_extensionality. intros.
+                            unfold subst_context. unfold update. unfold t_update.
+                            destruct (String.eqb x y) eqn:E1.
+                            apply eqb_eq in E1.
+                            destruct (String.eqb z z) eqn:E2. 2:{ apply eqb_neq in E2. contradiction. }
+                            destruct (String.eqb y x) eqn:E3. reflexivity. rewrite E1 in E3. apply eqb_neq in E3. contradiction. }
+                          rewrite <- H0. apply H.
+                    ***** clear z T z0 P Omega Omega'0 P0 Q0 Omega0 P z z0 T B H0_0 H3 H4 H0_1 H0_2 H H0 H1 x H6 H7 H8.
+                          unfold update. unfold t_update.
+                          destruct (String.eqb y x1) eqn:E1.
+                          ****** apply eqb_eq in E1. rewrite E1 in H2. contradiction.
+                          ****** apply H5.
+                    ***** clear P0 Q0 Omega0 P x1 z z0 T B H0_0 H3 H4 H0_1 H0_2 H H0 H2 x H5 H7 H8.
+                          unfold not. intros. destruct H6.
+                          inversion H. destruct H0 as [A']. destruct H0 as [B].
+                          unfold has_comm. unfold update in H0. unfold t_update in H0.
+                          exists x. destruct (String.eqb y x) eqn:E1.
+                          ****** apply eqb_eq in E1. subst. inversion H0. rewrite H1 in H2. inversion H2.
+                          ****** inversion H0. clear H0. unfold merge. destruct (Omega x) eqn:E2.
+                                 ******* exists c. exists B. split. reflexivity. assumption.
+                                 ******* exists A'. exists B. split. assumption. assumption.
+                    ***** clear P0 Q0 y Omega0 P x1 z T A B H0_0 H3 H4 Omega' H0_1 H0_2 H H0 H1 H2 x H5 H6 H8.
+                          unfold merge in H7. destruct (Omega z0) eqn:E1.
+                          ****** inversion H7.
+                          ****** apply H7.
+               **** clear P0 Q0 H3 H4 Omega H0_1 H0_2 H H0 H2 H5 H6 H7.
+                    apply not_exist with (x := y) in H0_0. 2:{ assumption. } inversion H0_0.
+                    unfold merge. rewrite H1.
+                    clear Omega'0 P z0 H1 H0_0 H H8 T.
+                    apply tmp1 with (B := B) in x. rewrite x in H0. clear Omega0 x.
+                    unfold update in H0. unfold t_update in H0.
+                    destruct (String.eqb z y). inversion H0.
+                    destruct (String.eqb x1 y). inversion H0. assumption.
+               **** clear P0 Q0 y Omega0 P x1 z z0 T A B H0_0 H3 H4 H0_1 H0_2 H0 H1 H2 x H5 H7 H8.
+                    unfold not. intros. destruct H6.
+                    apply has_comm_mergeR' in H0. inversion H0.
+                    ***** apply H in H1. contradiction.
+                    ***** apply has_comm_mergeL. assumption.
+               **** clear P0 Q0 y Omega0 P x1 z T A B H0_0 H3 H4 Omega' H0_1 H0_2 H H0 H1 H2 x H5 H6 H8.
+                    unfold merge in H7. destruct (Omega z0) eqn:E1.
+                    inversion H7. reflexivity.
+           *** clear. apply multi_step with (y := <{(P0 | Q0) | [z := y] P}>).
+               apply SAssoc'. apply multi_refl.
+        ** apply no_dup in H0_0.
+           clear H3 IHH0_0 H0_1 H0_2 H H0 H1 H2 H4 H5 H6 H7.
+           unfold update in H0_0. unfold t_update in H0_0.
+           destruct (String.eqb z x). inversion H0_0.
+           destruct (String.eqb x x) eqn:E1. inversion H0_0. apply eqb_neq in E1. contradiction.
+        ** apply IHH0_0 with (x := x1) (A := A) (B := B).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** rewrite <- x. clear. apply context_inequality with (x := x0).
+               unfold not. intros. unfold update in H. unfold t_update in H.
+               destruct (String.eqb x0 x0) eqn:E1.
+               **** inversion H. apply no_infinite_next with (T := A0).
+                    rewrite H1. reflexivity.
+               **** apply eqb_neq in E1. contradiction.
            *** reflexivity.
-           *** apply H6.
-           *** clear z T z0 P w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H10.
-               unfold not. intros. destruct H9.
-               unfold has_comm. unfold has_comm in H.
-               inversion H. inversion H0. clear H H0. inversion H1. clear H1.
-               exists x0.
-               unfold update. unfold t_update.
-               unfold update in H. unfold t_update in H.
-               destruct (String.eqb x x0) eqn:E1.
-               ***** exists A. exists x2. split. reflexivity. apply H.
-               ***** exists x1. exists x2. inversion H. split. apply H0. apply H1.
-           *** clear T z0 P Omega' w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H9.
-               unfold update. unfold t_update.
-               unfold update in H10. unfold t_update in H10.
-               destruct (String.eqb x z) eqn:E1.
-               ***** inversion H10.
-               ***** apply H10.
-        ** apply H1.
-      * specialize IHhas_type with (y := y) (Q := Q).
-        apply IHhas_type.
-        ** apply H.
-        ** apply H0.
-        ** reflexivity.
-        ** apply TSubBoxL. apply H6. apply H1.
-        ** apply H9.
-        ** apply H10.
-      * rewrite merge_assoc. apply TSubDiaL.
-        ** rewrite <- merge_assoc. apply IHhas_type.
-           *** apply TCut with (A := T0).
-               **** apply H4.
-               **** apply H6.
-               **** clear z T z0 P w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H10.
-                    unfold not in H9. unfold has_comm in H9.
-                    unfold not. intros. unfold has_comm in H.
-                    inversion H. inversion H0. inversion H1. clear H H0 H1.
-                    destruct H9. destruct H2. exists x0.
-                    unfold update in H. unfold t_update in H.
-                    unfold update. unfold t_update.
-                    destruct (String.eqb x x0) eqn:E1.
-                    ***** exists <{\Next A}>. exists x2. split. reflexivity. apply H0.
-                    ***** exists x1. exists x2. split. apply H. apply H0.
-               **** clear T z0 P Omega' w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H9.
-                    unfold update in H10. unfold t_update in H10.
-                    unfold update. unfold t_update.
-                    destruct (String.eqb x z) eqn:E1.
-                    ***** inversion H10.
-                    ***** apply H10.
-           *** apply H0.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+        ** apply TSubBoxR. 2:{ assumption. }
+           apply IHH0_0 with (x := x) (A := A) (B := B).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** apply buggy_lemma1.
            *** reflexivity.
-           *** apply H6.
-           *** clear z T z0 P w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H10.
-               unfold not. intros. destruct H9.
-               unfold has_comm. unfold has_comm in H.
-               inversion H. inversion H0. clear H H0. inversion H1. clear H1.
-               exists x0.
-               unfold update. unfold t_update.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+        ** apply IHH0_0 with (x := x1) (A := A) (B := B).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** rewrite <- x. clear. apply context_inequality with (x := x0).
+               unfold not. intros. unfold update in H. unfold t_update in H.
+               destruct (String.eqb x0 x0) eqn:E1.
+               **** inversion H. apply no_infinite_next with (T := A0). assumption.
+               **** apply eqb_neq in E1. contradiction.
+           *** reflexivity.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+        ** apply TSubDiaR. 2:{ assumption. }
+           apply IHH0_0 with (x := x) (A := A) (B := B).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** apply buggy_lemma1.
+           *** reflexivity.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+        ** apply IHH0_0 with (x := x) (A := A) (B := B).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** apply buggy_lemma1.
+           *** clear Omega Omega'0 P0 Q0 y Omega' A B z0 T H0_0 IHH0_0 H0_1 H0_2 H H0 H1 H2 H4 H5 H6 H7.
+               dependent induction H3. reflexivity.
+               assert (y = <{x(z); P}>). { apply IHmulti. reflexivity. }
+               subst. clear IHmulti H3. inversion H.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+      * clear IHH0_1 IHH0_2. dependent induction H0_0.
+        ** apply no_dup in H0_2. destruct H9.
+           clear P0 Q0 y P z z0 T H0_0 H7 H6 IHH0_0 H0_1 H H0 H1 H2 H3 H4 H5 H8 H10 H11.
+           unfold has_comm. exists x1. exists <{A -o B}>. exists <{A0 * B0}>.
+           unfold update in H0_2. unfold t_update in H0_2.
+           destruct (String.eqb x1 z1) eqn:E1. inversion H0_2. clear H0_2.
+           split.
+           *** unfold update. unfold t_update. destruct (String.eqb x1 x1) eqn:E2.
+               reflexivity. apply eqb_neq in E2. contradiction.
+           *** assert ((z1 |-> T0; Omega') x1 = Some <{ A0 * B0 }>).
+               { rewrite <- x. unfold update. unfold t_update.
+                 destruct (String.eqb x1 x1) eqn:E2. reflexivity.
+                 apply eqb_neq in E2. contradiction. }
+               clear Omega Omega'0 A B Omega0 x.
                unfold update in H. unfold t_update in H.
-               destruct (String.eqb x x0) eqn:E1.
-               ***** exists <{\Next A}>. exists x2. split. reflexivity. apply H.
-               ***** exists x1. exists x2. inversion H. split. apply H0. apply H1.
-           *** clear T z0 P Omega' w z1 y Q T0 H4 H1 IHhas_type H H0 H6 H9.
-               unfold update. unfold t_update.
-               unfold update in H10. unfold t_update in H10.
-               destruct (String.eqb x z) eqn:E1.
-               ***** inversion H10.
-               ***** apply H10.
-        ** apply H1.
-      * apply IHhas_type.
-        ** apply H.
-        ** apply H0.
-        ** reflexivity.
-        ** apply TSubDiaL. apply H6. apply H1.
-        ** apply H9.
-        ** apply H10.
-      * apply IHhas_type.
-        ** apply H.
-        ** apply H0.
-        ** clear z T z0 P Omega' w Omega T0 H4 IHhas_type H H0 H6 H9 H10.
-           dependent induction H1. reflexivity.
-           specialize IHmulti with (y := y) (Q := Q) (z1 := z1).
-           assert (y0 = <{z1<y>; Q}>). { apply IHmulti. reflexivity. }
-           subst. clear IHmulti H1.
-           inversion H.
-        ** apply H6.
-        ** apply H9.
-        ** apply H10.
-    + subst.
+               destruct (String.eqb z1 x1) eqn:E2.
+               **** apply eqb_neq in E1. apply eqb_eq in E2. rewrite E2 in E1. contradiction.
+               **** assumption.
+        ** unfold update in H9. unfold t_update in H9.
+           destruct (String.eqb x x) eqn:E1.
+           inversion H9. apply eqb_neq in E1. contradiction.
+        ** apply IHH0_0 with (z1 := z1) (T0 := T0).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** rewrite <- x. clear. apply context_inequality with (x := x0).
+               unfold not. intros. unfold update in H. unfold t_update in H.
+               destruct (String.eqb x0 x0) eqn:E1.
+               **** inversion H. apply no_infinite_next with (T := A0).
+                    rewrite H1. reflexivity.
+               **** apply eqb_neq in E1. contradiction.
+           *** reflexivity.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+        ** apply TSubBoxR. 2:{ assumption. }
+           apply IHH0_0 with (z1 := z1) (T0 := T0).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** apply buggy_lemma1.
+           *** reflexivity.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+        ** apply IHH0_0 with (z1 := z1) (T0 := T0).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** rewrite <- x. clear. apply context_inequality with (x := x0).
+               unfold not. intros. unfold update in H. unfold t_update in H.
+               destruct (String.eqb x0 x0) eqn:E1.
+               **** inversion H. apply no_infinite_next with (T := A0). assumption.
+               **** apply eqb_neq in E1. contradiction.
+           *** reflexivity.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+        ** apply TSubDiaR. 2:{ assumption. }
+           apply IHH0_0 with (z1 := z1) (T0 := T0).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** apply buggy_lemma1.
+           *** reflexivity.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+        ** apply IHH0_0 with (z1 := z1) (T0 := T0).
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** apply buggy_lemma1.
+           *** clear Omega Omega'0 P0 Q0 y A B Omega' z1 T0 z0 T H0_0 IHH0_0 H0_1 H0_2 H H0 H1 H2 H3 H4 H5 H7 H8 H9 H10.
+               dependent induction H6. reflexivity.
+               assert (y = <{x(z); P}>). { apply IHmulti. reflexivity. }
+               subst. clear IHmulti H6. inversion H.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+           *** assumption.
+      *
 
 (* Lemma Progress : forall (P : Proc) (z: string) (T: CType),
   empty |-- P :: z \in T -> not_poised P ->
