@@ -425,7 +425,66 @@ Proof.
           ++ assumption.
           ++ assumption.
           ++ assumption.
-      *
+      * rewrite merge_update_assoc. apply TSubBoxL. 2:{ assumption. }
+        rewrite <- merge_update_assoc. apply IHH0_ with (x := x).
+        -- reflexivity.
+        -- assumption.
+        -- assumption.
+        -- generalize dependent H0. clear. intros.
+          unfold not. intros. destruct H0.
+          unfold has_comm in H. destruct H. destruct H as [A0]. destruct H as [B0].
+          unfold has_comm. exists x.
+          unfold update. unfold t_update. unfold update in H. unfold t_update in H.
+          destruct (String.eqb x0 x).
+          ++ exists A. exists B0. destruct H. split. reflexivity. assumption.
+          ++ exists A0. exists B0. assumption.
+        -- generalize dependent H1. clear. intros.
+          unfold update. unfold t_update. unfold update in H1. unfold t_update in H1.
+          destruct (String.eqb x0 z0). inversion H1. assumption.
+        -- assumption.
+      * apply IHH0_ with (x := x).
+        -- reflexivity.
+        -- apply TSubBoxL. assumption. assumption.
+        -- assumption.
+        -- assumption.
+        -- assumption.
+        -- assumption.
+      * rewrite merge_update_assoc. apply TSubDiaL. 2:{ assumption. }
+        rewrite <- merge_update_assoc. apply IHH0_ with (x := x).
+        -- reflexivity.
+        -- assumption.
+        -- assumption.
+        -- generalize dependent H0. clear. intros.
+          unfold not. intros. destruct H0.
+          unfold has_comm in H. destruct H. destruct H as [A0]. destruct H as [B0].
+          unfold has_comm. exists x.
+          unfold update. unfold t_update. unfold update in H. unfold t_update in H.
+          destruct (String.eqb x0 x).
+          ++ exists <{\Next A}>. exists B0. destruct H. split. reflexivity. assumption.
+          ++ exists A0. exists B0. assumption.
+        -- generalize dependent H1. clear. intros.
+          unfold update. unfold t_update. unfold update in H1. unfold t_update in H1.
+          destruct (String.eqb x0 z0). inversion H1. assumption.
+        -- assumption.
+      * apply IHH0_ with (x := x).
+        -- reflexivity.
+        -- apply TSubDiaL. assumption. assumption.
+        -- assumption.
+        -- assumption.
+        -- assumption.
+        -- assumption.
+      * apply IHH0_ with (x := x).
+        -- generalize dependent H. clear. intros.
+          dependent induction H.
+          ++ reflexivity.
+          ++ assert (y0 = <{x<y>; Q}>). { apply IHmulti. reflexivity. }
+            subst. clear IHmulti H0. inversion H.
+        -- assumption.
+        -- assumption.
+        -- assumption.
+        -- assumption.
+        -- assumption.
+    + apply IHhas_type with (x := x).
 
 (* Lemma Progress : forall (P : Proc) (z: string) (T: CType),
   empty |-- P :: z \in T -> not_poised P ->
