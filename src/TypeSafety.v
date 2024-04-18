@@ -10,13 +10,6 @@ From Coq Require Import Logic.FunctionalExtensionality.
 Module TypeSafety.
 Import BaseSystem.
 
-Lemma test_lemma: forall (Omega: context) (x y z w: string) (P: Proc) (A T: CType),
-  w |-> A; Omega |-- <{x(y); P}> :: z \in T -> x <> z ->
-  (w |-> A; Omega) x = None.
-Proof.
-  intros. dependent induction H.
-  4:{ apply IHhas_type with (y := y) (w := w) (P := P) (A := A). Admitted.
-
 Lemma not_so_empty: forall (Omega: context) (x: string) (A: CType),
   ~(x |-> A; Omega) = empty.
 Proof.
@@ -137,14 +130,6 @@ Proof. Admitted.
 
 Lemma tmp1 : forall (Omega Omega': context) (x: string) (A B: CType),
   (x |-> A; Omega) = (x |-> A; Omega') -> (x |-> B; Omega) = (x |-> B; Omega').
-Proof. Admitted.
-
-Lemma context_inequality : forall (Omega Omega': context) (x: string),
-  ~(Omega x = Omega' x) -> Omega ~= Omega'.
-Proof. Admitted.
-
-Lemma buggy_lemma1 : forall (x: string) (T: CType) (Omega: context),
-  (x |-> T; Omega) ~= (x |-> T; Omega).
 Proof. Admitted.
 
 Theorem Preservation' : forall (P Q: Proc) (Omega: context) (z: string) (T: CType),

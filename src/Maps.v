@@ -118,7 +118,7 @@ Definition t_empty {A : Type} (v : A) : total_map A :=
 
 Definition t_update {A : Type} (m : total_map A)
                     (x : string) (v : A) :=
-  fun x' => if String.eqb x x' then v else m x'.
+  fun x' => if String.string_dec x x' then v else m x'.
 
 (** This definition is a nice example of higher-order programming:
     [t_update] takes a _function_ [m] and yields a new function
